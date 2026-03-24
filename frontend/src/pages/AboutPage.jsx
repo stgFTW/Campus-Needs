@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { SEOHead } from "@/components/shared/SEOHead";
 import { MARKETPLACE_URL, CATEGORIES } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck, MapPin, Banknote, ShoppingBag, Sofa, BookOpen, RefreshCw } from "lucide-react";
@@ -33,6 +34,10 @@ const whyPeerToPeer = [
 export default function AboutPage() {
   return (
     <>
+      <SEOHead
+        title="About Campus Needs — USF Student Marketplace"
+        description="Campus Needs is a student-run peer-to-peer marketplace built exclusively for University of San Francisco students."
+      />
       {/* Page Header */}
       <section className="bg-hero-gradient">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">

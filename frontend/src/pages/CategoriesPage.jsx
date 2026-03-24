@@ -1,11 +1,16 @@
 import { CategoryCard } from "@/components/shared/CategoryCard";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { CTABanner } from "@/components/shared/CTABanner";
+import { SEOHead } from "@/components/shared/SEOHead";
 import { CATEGORIES } from "@/lib/constants";
 
 export default function CategoriesPage() {
   return (
     <>
+      <SEOHead
+        title="Browse Categories — Campus Needs"
+        description="Explore Convenience Runs, Dorm Essentials, Course Materials, and Short Term Borrowing on Campus Needs."
+      />
       {/* Page Header */}
       <section className="bg-hero-gradient">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">

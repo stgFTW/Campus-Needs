@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the Campus Needs website - a multi-page student marketplace marketing site for the University of San Francisco with 4 pages (Home, Categories, How It Works, About). Verify all navigation, CTA buttons, mobile responsiveness, and design elements."
+user_problem_statement: "Test the updated Campus Needs website at http://localhost:3000 which now has 5 pages. Test ALL 8 changes: 1) Logo PNG image in header/footer, 2) New List Your Item page with form validation, 3) Trust bar on homepage, 4) New CTA banner for listing items, 5) Footer text update, 6) Onboarding popup modal, 7) SEO page titles, 8) Mobile nav with 5 links."
 
 backend:
   - task: "Backend API endpoints"
@@ -202,7 +202,7 @@ frontend:
         agent: "testing"
         comment: "✅ About page fully functional. Green header with long headline 'Your campus has everything you need. Now you can actually get it.' displays correctly. About paragraph present. 'Our Four Categories' section displays all 4 categories. 'Why peer-to-peer?' section shows Trust, Local, Affordable items. 'The Problem We're Solving' section present. 'Explore the Marketplace' button links correctly to https://www.trickly.io/market/CampusNeeds with target='_blank'. CTA banner at bottom present."
 
-  - task: "Header Component"
+  - task: "CHANGE 1 - Logo PNG Image"
     implemented: true
     working: true
     file: "/app/frontend/src/components/layout/Header.jsx"
@@ -212,9 +212,24 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Header fully functional. Logo with 'Campus Needs' text and gold exchange arrows icon (ArrowLeftRight) displays correctly. All 4 nav links (Home, Categories, How It Works, About) present and functional. Green 'Browse Listings' button links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Header has sticky class and remains visible on scroll."
+        comment: "✅ Logo PNG image (/campus-needs-logo.png) displays correctly in both header and footer on all pages. Image has correct size classes (h-10 w-10 = 40px). Old ArrowLeftRight lucide icon has been removed. Logo is circular with proper styling (rounded-full object-cover)."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Header fully functional. Logo with 'Campus Needs' text and gold exchange arrows icon (ArrowLeftRight) displays correctly. All 4 nav links (Home, Categories, How It Works, About) present and functional. Green 'Browse Listings' button links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Header has sticky class and remains visible on scroll."
 
-  - task: "Footer Component"
+  - task: "Header Component - Navigation"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/layout/Header.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ Header navigation fully functional. All 5 nav links present (Home, Categories, How It Works, List Your Item, About). Green 'Browse Listings' button links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Header has sticky class and remains visible on scroll."
+
+  - task: "CHANGE 5 - Footer Text Update"
     implemented: true
     working: true
     file: "/app/frontend/src/components/layout/Footer.jsx"
@@ -224,7 +239,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Footer fully functional. Logo with 'Campus Needs' text and exchange arrows icon present. Description about Exonome displays correctly: 'Campus Needs is a student-run marketplace at the University of San Francisco, powered by Exonome.' Quick Links section with all 4 page links present. Copyright text '© 2026 Campus Needs' displays correctly."
+        comment: "✅ Footer text 'No account needed to browse. Just click a category and explore.' displays correctly on all 5 pages (Home, Categories, How It Works, List Your Item, About). Logo PNG image also present in footer. Quick Links section updated with all 5 page links including new 'List Your Item' link."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Footer fully functional. Logo with 'Campus Needs' text and exchange arrows icon present. Description about Exonome displays correctly: 'Campus Needs is a student-run marketplace at the University of San Francisco, powered by Exonome.' Quick Links section with all 4 page links present. Copyright text '© 2026 Campus Needs' displays correctly."
 
   - task: "Navigation Functionality"
     implemented: true
@@ -236,7 +254,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Navigation between all 4 pages works correctly. Clicking nav links properly navigates to: / (Home), /categories, /how-it-works, /about. React Router working as expected."
+        comment: "✅ Navigation between all 5 pages works correctly. Clicking nav links properly navigates to: / (Home), /categories, /how-it-works, /list-your-item, /about. React Router working as expected with new List Your Item page route."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Navigation between all 4 pages works correctly. Clicking nav links properly navigates to: / (Home), /categories, /how-it-works, /about. React Router working as expected."
 
   - task: "Active Nav State"
     implemented: true
@@ -248,7 +269,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Active nav state highlights current page in gold (text-accent class). Tested on all 4 pages - Home, Categories, How It Works, About. Current page nav link displays in gold color correctly."
+        comment: "✅ Active nav state highlights current page in gold (text-accent class). Tested on all 5 pages - Home, Categories, How It Works, List Your Item, About. Current page nav link displays in gold color correctly."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Active nav state highlights current page in gold (text-accent class). Tested on all 4 pages - Home, Categories, How It Works, About. Current page nav link displays in gold color correctly."
 
   - task: "Scroll to How It Works Section"
     implemented: true
@@ -262,17 +286,20 @@ frontend:
         agent: "testing"
         comment: "✅ 'How It Works' button in hero section has href='#how-it-works' and successfully scrolls to the How It Works section on homepage. Scroll position changed from 0px to 1239px, confirming smooth scroll functionality."
 
-  - task: "Mobile Hamburger Menu"
+  - task: "CHANGE 8 - Mobile Hamburger Menu"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/layout/Header.jsx"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
     needs_retesting: false
     status_history:
+      - working: false
+        agent: "testing"
+        comment: "❌ CRITICAL BUG: Mobile hamburger menu at 390px width has a critical issue. Menu opens correctly and shows all 5 nav links (Home, Categories, How It Works, List Your Item, About) plus Browse Listings button. However, the menu overlay does NOT close when clicking nav links or the X button. The overlay persists with display:flex, opacity:1, visibility:visible, blocking user interaction with page content. Navigation works (URL changes), but the overlay remains visible and blocks the header. The onClick handler setMobileOpen(false) appears to not be working, or AnimatePresence is not properly removing the element from DOM. This makes the mobile menu unusable as users get stuck with the overlay blocking the page."
       - working: true
         agent: "testing"
-        comment: "✅ Mobile hamburger menu works correctly at 390px width. Hamburger button (with aria-label='Toggle menu') is visible. Menu opens on click showing all nav links (Home, Categories, How It Works, About) and Browse Listings button. Menu closes on clicking X button. AnimatePresence animation works smoothly."
+        comment: "Previous: Mobile hamburger menu works correctly at 390px width. Hamburger button (with aria-label='Toggle menu') is visible. Menu opens on click showing all nav links (Home, Categories, How It Works, About) and Browse Listings button. Menu closes on clicking X button. AnimatePresence animation works smoothly."
 
   - task: "Mobile Responsive Layout"
     implemented: true
@@ -334,18 +361,79 @@ frontend:
         agent: "testing"
         comment: "✅ All CTA and Browse buttons link correctly to https://www.trickly.io/market/CampusNeeds with target='_blank'. Verified on: Header Browse Listings button, Hero Browse Listings button, All 4 category card Browse buttons (on both Homepage and Categories page), CTA banner buttons on all pages, Explore the Marketplace button on About page. All buttons open marketplace in new tab."
 
+  - task: "CHANGE 2 - List Your Item Page"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/ListYourItemPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ List Your Item page fully functional at /list-your-item. Page header 'List your item or service' with subheading present. Light green info box (#E8F5ED) with text 'Only @usfca.edu email addresses are accepted...' displays correctly. All form fields present: Full name, USF email, Category dropdown (with all 4 categories), Item name, Description, Price, Location, Notes (optional). Submit button 'Submit My Listing' present. Disclaimer text below form. Email validation works: non-usfca.edu emails show error message 'Please enter a valid @usfca.edu email address'. Successful submission with @usfca.edu email shows success message 'Listing submitted!' with green checkmark icon. Nav link 'List Your Item' appears in header between 'How It Works' and 'About'."
+
+  - task: "CHANGE 3 - Trust Bar on Homepage"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/shared/TrustBar.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ Trust bar displays correctly on homepage between hero section and category cards. Background color is light green (#E8F5ED / rgb(232, 245, 237)). All 3 trust signals present with CheckCircle icons: 'Verified @usfca.edu students only', 'No shipping. Meet on campus.', 'Free to list. Free to browse.' Signals are separated by vertical dividers on desktop, stacked on mobile."
+
+  - task: "CHANGE 4 - New CTA Banner (List Your Item)"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ New CTA banner (ListItemBanner component) displays correctly on homepage between How It Works section and the existing marketplace CTA banner. Green background (bg-primary). Headline 'Have something to sell or offer?' present. Subtext 'Submit your item or service. We verify your USF email and list it for you.' displays correctly. Gold button 'List Your Item' with ArrowRight icon links to internal page /list-your-item (NOT external marketplace URL). This is correctly differentiated from the marketplace CTA banner which links to trickly.io."
+
+  - task: "CHANGE 6 - Onboarding Popup Modal"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/shared/OnboardingModal.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ Onboarding modal works perfectly. Modal appears automatically on first visit (after clearing localStorage). All 4 slides present with correct content: Slide 1 'Welcome to Campus Needs' (ArrowLeftRight icon), Slide 2 'Verified students only' (ShieldCheck icon), Slide 3 'Everything happens on campus' (MapPin icon), Slide 4 'Ready to explore?' (ArrowRight icon). Dot progress indicators work correctly (4 dots, active dot highlighted). Skip button visible on slides 1-3. Next button advances through slides. Final slide has 'Browse the Marketplace' button linking to https://www.trickly.io/market/CampusNeeds with target='_blank', plus 'Skip and explore the site' text button. Close X button in header works. After dismissing modal, localStorage is set and modal does NOT reappear on page refresh. Modal has green header bar with 'Campus Needs' text."
+
+  - task: "CHANGE 7 - SEO Page Titles"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ SEO page titles are correct on all 5 pages. Homepage (/): 'Campus Needs — USF Student Marketplace'. Categories (/categories): 'Browse Categories — Campus Needs'. How It Works (/how-it-works): 'How It Works — Campus Needs'. List Your Item (/list-your-item): 'List Your Item — Campus Needs'. About (/about): 'About Campus Needs — USF Student Marketplace'. All titles use SEOHead component with proper Helmet implementation."
+
 metadata:
   created_by: "testing_agent"
-  version: "1.0"
-  test_sequence: 1
+  version: "2.0"
+  test_sequence: 2
   run_ui: true
   last_tested: "2026-03-24"
 
 test_plan:
   current_focus:
-    - "All testing complete"
-  stuck_tasks: []
-  test_all: true
+    - "CHANGE 8 - Mobile Hamburger Menu (CRITICAL BUG)"
+  stuck_tasks:
+    - "CHANGE 8 - Mobile Hamburger Menu"
+  test_all: false
   test_priority: "high_first"
 
 agent_communication:
@@ -353,3 +441,5 @@ agent_communication:
     message: "Initial comprehensive testing completed. All 4 pages tested (Home, Categories, How It Works, About). All functionality verified including navigation, CTA buttons, mobile responsiveness, sticky header, scroll behavior, and design elements. All tests passed successfully. The Campus Needs website is fully functional and meets all requirements."
   - agent: "testing"
     message: "Testing methodology: Used Python Playwright for automated UI testing. Tested at desktop viewport (1920x1080) and mobile viewport (390x844). Verified all page elements, navigation flows, button links, mobile menu, scroll behavior, and design colors. Screenshots captured for documentation."
+  - agent: "testing"
+    message: "UPDATE: Comprehensive testing of all 8 changes completed. 7 out of 8 changes are working correctly. CRITICAL BUG found in CHANGE 8 (Mobile Hamburger Menu) - menu overlay does not close when clicking links or X button, blocking user interaction on mobile devices. All other changes (Logo, List Your Item page, Trust Bar, CTA Banner, Footer text, Onboarding modal, SEO titles) are fully functional and working as expected."

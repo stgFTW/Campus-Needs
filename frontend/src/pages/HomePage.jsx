@@ -3,9 +3,13 @@ import { CategoryCard } from "@/components/shared/CategoryCard";
 import { StepCard } from "@/components/shared/StepCard";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { SEOHead } from "@/components/shared/SEOHead";
+import { OnboardingModal } from "@/components/shared/OnboardingModal";
+import { TrustBar } from "@/components/shared/TrustBar";
 import { MARKETPLACE_URL, CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -107,12 +111,50 @@ const HowItWorksSection = () => {
   );
 };
 
+const ListItemBanner = () => {
+  return (
+    <section className="bg-primary">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground text-balance">
+            Have something to sell or offer?
+          </h2>
+          <p className="text-base text-primary-foreground/75 max-w-lg mx-auto">
+            Submit your item or service. We verify your USF email and list it for you.
+          </p>
+          <div className="pt-2">
+            <Button variant="gold" size="lg" className="group" asChild>
+              <Link to="/list-your-item">
+                List Your Item
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 export default function HomePage() {
   return (
     <>
+      <SEOHead
+        title="Campus Needs — USF Student Marketplace"
+        description="Buy, sell, and borrow with verified USF students. Campus Needs is the trusted peer-to-peer marketplace for University of San Francisco students."
+      />
+      <OnboardingModal />
       <HeroSection />
+      <TrustBar />
       <CategoriesSection />
       <HowItWorksSection />
+      <ListItemBanner />
       <CTABanner />
     </>
   );

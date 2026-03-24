@@ -1,6 +1,7 @@
 import { StepCard } from "@/components/shared/StepCard";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { SEOHead } from "@/components/shared/SEOHead";
 import { HOW_IT_WORKS_STEPS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { DollarSign, Heart } from "lucide-react";
@@ -8,6 +9,10 @@ import { DollarSign, Heart } from "lucide-react";
 export default function HowItWorksPage() {
   return (
     <>
+      <SEOHead
+        title="How It Works — Campus Needs"
+        description="Learn how Campus Needs connects USF students to buy, sell, and borrow safely on campus."
+      />
       {/* Page Header */}
       <section className="bg-hero-gradient">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">

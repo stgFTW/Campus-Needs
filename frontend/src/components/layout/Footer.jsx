@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowLeftRight } from "lucide-react";
 
 const footerLinks = [
   { label: "Home", path: "/" },
   { label: "Categories", path: "/categories" },
   { label: "How It Works", path: "/how-it-works" },
+  { label: "List Your Item", path: "/list-your-item" },
   { label: "About", path: "/about" },
 ];
 
@@ -15,8 +15,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Logo & Description */}
           <div className="space-y-4">
-            <Link to="/" className="inline-flex items-center gap-2 group">
-              <ArrowLeftRight className="h-5 w-5 text-accent transition-transform duration-300 group-hover:rotate-180" />
+            <Link to="/" className="inline-flex items-center gap-2.5 group">
+              <img
+                src="/campus-needs-logo.png"
+                alt="Campus Needs logo"
+                className="h-10 w-10 rounded-full object-cover"
+              />
               <span className="text-lg font-bold text-primary-foreground tracking-tight">
                 Campus Needs
               </span>
@@ -47,7 +51,10 @@ export const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="mt-10 pt-6 border-t border-primary-foreground/10">
+        <div className="mt-10 pt-6 border-t border-primary-foreground/10 space-y-2">
+          <p className="text-xs text-primary-foreground/50 text-center">
+            No account needed to browse. Just click a category and explore.
+          </p>
           <p className="text-xs text-primary-foreground/50 text-center">
             © 2026 Campus Needs
           </p>
