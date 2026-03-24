@@ -1,0 +1,119 @@
+import { Button } from "@/components/ui/button";
+import { CategoryCard } from "@/components/shared/CategoryCard";
+import { StepCard } from "@/components/shared/StepCard";
+import { CTABanner } from "@/components/shared/CTABanner";
+import { SectionHeading } from "@/components/shared/SectionHeading";
+import { MARKETPLACE_URL, CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
+import { motion } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
+
+const HeroSection = () => {
+  return (
+    <section className="relative bg-hero-gradient overflow-hidden">
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(0 0% 100%) 1px, transparent 0)',
+        backgroundSize: '32px 32px'
+      }} />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
+              Your campus.
+              <br />
+              <span className="text-accent">Your exchange.</span>
+            </h1>
+            <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
+              Buy, sell, and borrow with verified USF students — no strangers,
+              no shipping, just your campus community.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button variant="gold" size="lg" className="group" asChild>
+                <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+                  Browse Listings
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <a href="#how-it-works">
+                  How It Works
+                  <ChevronDown className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="hidden lg:block"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.pexels.com/photos/6147143/pexels-photo-6147143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="USF students interacting on campus"
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CategoriesSection = () => {
+  return (
+    <section className="py-16 sm:py-20 bg-background">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="What can you find?"
+          subtitle="Four categories. One campus. Everything you need."
+        />
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {CATEGORIES.map((cat, i) => (
+            <CategoryCard key={cat.id} category={cat} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const HowItWorksSection = () => {
+  return (
+    <section id="how-it-works" className="py-16 sm:py-20 bg-green-tint">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="How It Works"
+          subtitle="Three simple steps to get what you need from your campus community."
+        />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+          {HOW_IT_WORKS_STEPS.map((step, i) => (
+            <StepCard key={step.step} step={step} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default function HomePage() {
+  return (
+    <>
+      <HeroSection />
+      <CategoriesSection />
+      <HowItWorksSection />
+      <CTABanner />
+    </>
+  );
+}
