@@ -288,12 +288,15 @@ frontend:
 
   - task: "CHANGE 8 - Mobile Hamburger Menu"
     implemented: true
-    working: false
+    working: true
     file: "/app/frontend/src/components/layout/Header.jsx"
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ FIXED! Mobile hamburger menu now works perfectly at 390px width. All 5 nav links (Home, Categories, How It Works, List Your Item, About) and Browse Listings button are visible in the mobile menu. CRITICAL BUG RESOLVED: Menu overlay now properly closes when clicking nav links or the X button - the overlay is completely removed from DOM (not just hidden). Tested: (1) Opening menu, (2) Clicking 'List Your Item' link - URL changes to /list-your-item and overlay closes, (3) Navigating back to homepage, (4) Reopening menu, (5) Clicking X button - overlay closes. The fix replaced AnimatePresence with simple conditional rendering {mobileOpen && ...} and added closeMobile callback to all nav links and buttons. Mobile navigation is now fully functional."
       - working: false
         agent: "testing"
         comment: "❌ CRITICAL BUG: Mobile hamburger menu at 390px width has a critical issue. Menu opens correctly and shows all 5 nav links (Home, Categories, How It Works, List Your Item, About) plus Browse Listings button. However, the menu overlay does NOT close when clicking nav links or the X button. The overlay persists with display:flex, opacity:1, visibility:visible, blocking user interaction with page content. Navigation works (URL changes), but the overlay remains visible and blocks the header. The onClick handler setMobileOpen(false) appears to not be working, or AnimatePresence is not properly removing the element from DOM. This makes the mobile menu unusable as users get stuck with the overlay blocking the page."
@@ -424,15 +427,13 @@ frontend:
 metadata:
   created_by: "testing_agent"
   version: "2.0"
-  test_sequence: 2
+  test_sequence: 3
   run_ui: true
   last_tested: "2026-03-24"
 
 test_plan:
-  current_focus:
-    - "CHANGE 8 - Mobile Hamburger Menu (CRITICAL BUG)"
-  stuck_tasks:
-    - "CHANGE 8 - Mobile Hamburger Menu"
+  current_focus: []
+  stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
@@ -443,3 +444,5 @@ agent_communication:
     message: "Testing methodology: Used Python Playwright for automated UI testing. Tested at desktop viewport (1920x1080) and mobile viewport (390x844). Verified all page elements, navigation flows, button links, mobile menu, scroll behavior, and design colors. Screenshots captured for documentation."
   - agent: "testing"
     message: "UPDATE: Comprehensive testing of all 8 changes completed. 7 out of 8 changes are working correctly. CRITICAL BUG found in CHANGE 8 (Mobile Hamburger Menu) - menu overlay does not close when clicking links or X button, blocking user interaction on mobile devices. All other changes (Logo, List Your Item page, Trust Bar, CTA Banner, Footer text, Onboarding modal, SEO titles) are fully functional and working as expected."
+  - agent: "testing"
+    message: "RE-TEST COMPLETE: CHANGE 8 (Mobile Hamburger Menu) has been successfully fixed! All 8 changes are now working correctly. The mobile menu overlay now properly closes when clicking nav links or the X button by completely removing the overlay from the DOM. Tested all requirements: (1) All 5 nav links visible in mobile menu, (2) Browse Listings button visible, (3) Clicking links navigates and closes overlay, (4) X button closes overlay. Also verified all quick checks: page titles, logo image classes, nav link positioning, footer text, and email validation. The Campus Needs website is now fully functional on both desktop and mobile viewports."
