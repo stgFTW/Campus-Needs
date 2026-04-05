@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export const CTABanner = ({
   headline = "Ready to buy, sell, or borrow?",
-  buttonText = "Go to Campus Needs Marketplace",
+  buttonText = "Browse Marketplace",
 }) => {
   return (
     <section className="bg-primary">

@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the updated Campus Needs website at http://localhost:3000 which now has 5 pages. Test ALL 8 changes: 1) Logo PNG image in header/footer, 2) New List Your Item page with form validation, 3) Trust bar on homepage, 4) New CTA banner for listing items, 5) Footer text update, 6) Onboarding popup modal, 7) SEO page titles, 8) Mobile nav with 5 links."
+user_problem_statement: "Test all changes on the Campus Needs website at http://localhost:3000. Verify: 1) Categories page with 'Live Now' section (2 green cards: Home and Living, Study and Class Essentials) and 'Coming Soon' section (2 grayed cards with gold badges: Campus Errands, Short Term Borrowing), 2) Homepage hero ('Your campus. Your exchange.' and 'Buy and sell what you actually need...'), 3) CTA button text 'Browse Marketplace' (NOT 'Browse Listings'), 4) Only 2 live category cards on homepage, 5) List Your Item dropdown with only 2 categories, 6) Footer with new structure (logo, tagline, email, Browse Marketplace button, copyright), 7) About page categories with 'Soon' tags, 8) No old category names anywhere."
 
 backend:
   - task: "Backend API endpoints"
@@ -128,7 +128,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Hero section fully functional. Headline 'Your campus. Your exchange.' displays correctly with gold accent on 'Your exchange'. Subheadline about USF students present. Hero image of students displays correctly. Both 'Browse Listings' and 'How It Works' buttons present and functional."
+        comment: "✅ UPDATED: Hero section fully functional with NEW copy. Headline 'Your campus. Your exchange.' displays correctly with gold accent on 'Your exchange'. Subheadline 'Buy and sell what you actually need, with students you already trust.' is correct. Hero image of students displays correctly. CTA button now says 'Browse Marketplace' (NOT 'Browse Listings') and links to https://www.trickly.io/market/CampusNeeds. 'How It Works' button present and functional."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Hero section fully functional. Headline 'Your campus. Your exchange.' displays correctly with gold accent on 'Your exchange'. Subheadline about USF students present. Hero image of students displays correctly. Both 'Browse Listings' and 'How It Works' buttons present and functional."
 
   - task: "Homepage - Category Cards Section"
     implemented: true
@@ -140,7 +143,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ All 4 category cards display correctly: Convenience Runs, Dorm Essentials, Course Materials, Short Term Borrowing. Each card has icon, name, description, and 'Browse' button. All Browse buttons link to https://www.trickly.io/market/CampusNeeds with target='_blank'."
+        comment: "✅ UPDATED: Category cards section now shows ONLY 2 live categories: 'Home and Living' and 'Study and Class Essentials'. Category subtitle correctly displays 'Live categories on Campus Needs right now.' Each card has green background (#006341), icon, name, description, and 'Browse Listings' button linking to https://www.trickly.io/market/CampusNeeds. Old category names (Convenience Runs, Dorm Essentials, Course Materials) have been completely removed."
+      - working: true
+        agent: "testing"
+        comment: "Previous: All 4 category cards display correctly: Convenience Runs, Dorm Essentials, Course Materials, Short Term Borrowing. Each card has icon, name, description, and 'Browse' button. All Browse buttons link to https://www.trickly.io/market/CampusNeeds with target='_blank'."
 
   - task: "Homepage - How It Works Section"
     implemented: true
@@ -164,7 +170,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Green CTA banner with 'Ready to buy, sell, or borrow?' headline displays correctly. Gold button 'Go to Campus Needs Marketplace' links to https://www.trickly.io/market/CampusNeeds with target='_blank'."
+        comment: "✅ UPDATED: Green CTA banner with 'Ready to buy, sell, or borrow?' headline displays correctly. Gold button now says 'Browse Marketplace' (NOT 'Go to Campus Needs Marketplace') and links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Button text has been updated across all pages."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Green CTA banner with 'Ready to buy, sell, or borrow?' headline displays correctly. Gold button 'Go to Campus Needs Marketplace' links to https://www.trickly.io/market/CampusNeeds with target='_blank'."
 
   - task: "Categories Page"
     implemented: true
@@ -176,7 +185,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Categories page fully functional. Green header with 'Browse by Category' displays correctly. 2x2 grid of all 4 category cards present. Each card has Browse button linking to marketplace. CTA banner at bottom present."
+        comment: "✅ UPDATED: Categories page completely redesigned and fully functional. Green header with 'Browse by Category' displays correctly. Page now has TWO sections: 1) 'Live Now' section with 2 green cards (Home and Living, Study and Class Essentials) - both have 'Browse Listings' buttons linking to marketplace. 2) 'Coming Soon' section with 2 grayed-out cards (Campus Errands, Short Term Borrowing) - both have gold 'Coming Soon' badges in top right corner and NO Browse buttons. Old category names completely removed. CTA banner at bottom present."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Categories page fully functional. Green header with 'Browse by Category' displays correctly. 2x2 grid of all 4 category cards present. Each card has Browse button linking to marketplace. CTA banner at bottom present."
 
   - task: "How It Works Page"
     implemented: true
@@ -200,7 +212,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ About page fully functional. Green header with long headline 'Your campus has everything you need. Now you can actually get it.' displays correctly. About paragraph present. 'Our Four Categories' section displays all 4 categories. 'Why peer-to-peer?' section shows Trust, Local, Affordable items. 'The Problem We're Solving' section present. 'Explore the Marketplace' button links correctly to https://www.trickly.io/market/CampusNeeds with target='_blank'. CTA banner at bottom present."
+        comment: "✅ UPDATED: About page fully functional. Green header with long headline 'Your campus has everything you need. Now you can actually get it.' displays correctly. About paragraph present. 'Our Categories' section displays all 4 categories with NEW names: 'Home and Living', 'Study and Class Essentials', 'Campus Errands', 'Short Term Borrowing'. Coming soon categories (Campus Errands, Short Term Borrowing) have gold 'Soon' tags. Old category names completely removed. 'Why peer-to-peer?' section shows Trust, Local, Affordable items. 'The Problem We're Solving' section present. 'Explore the Marketplace' button links correctly to https://www.trickly.io/market/CampusNeeds with target='_blank'. CTA banner at bottom present."
+      - working: true
+        agent: "testing"
+        comment: "Previous: About page fully functional. Green header with long headline 'Your campus has everything you need. Now you can actually get it.' displays correctly. About paragraph present. 'Our Four Categories' section displays all 4 categories. 'Why peer-to-peer?' section shows Trust, Local, Affordable items. 'The Problem We're Solving' section present. 'Explore the Marketplace' button links correctly to https://www.trickly.io/market/CampusNeeds with target='_blank'. CTA banner at bottom present."
 
   - task: "CHANGE 1 - Logo PNG Image"
     implemented: true
@@ -239,10 +254,13 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Footer text 'No account needed to browse. Just click a category and explore.' displays correctly on all 5 pages (Home, Categories, How It Works, List Your Item, About). Logo PNG image also present in footer. Quick Links section updated with all 5 page links including new 'List Your Item' link."
+        comment: "✅ UPDATED: Footer completely redesigned with new structure. Left side: Logo PNG image with 'Campus Needs' text, tagline 'Your campus. Your exchange.' in gold, and email 'hello@campusneeds.me'. Right side: Gold 'Browse Marketplace' button linking to https://www.trickly.io/market/CampusNeeds. Bottom: Copyright '© 2025 Campus Needs. Built for USF students.' All old footer content removed (no 'powered by Exonome', no 'No account needed' text, no Quick Links section). Footer displays correctly on all 5 pages."
       - working: true
         agent: "testing"
-        comment: "Previous: Footer fully functional. Logo with 'Campus Needs' text and exchange arrows icon present. Description about Exonome displays correctly: 'Campus Needs is a student-run marketplace at the University of San Francisco, powered by Exonome.' Quick Links section with all 4 page links present. Copyright text '© 2026 Campus Needs' displays correctly."
+        comment: "Previous (CHANGE 5): Footer text 'No account needed to browse. Just click a category and explore.' displays correctly on all 5 pages (Home, Categories, How It Works, List Your Item, About). Logo PNG image also present in footer. Quick Links section updated with all 5 page links including new 'List Your Item' link."
+      - working: true
+        agent: "testing"
+        comment: "Original: Footer fully functional. Logo with 'Campus Needs' text and exchange arrows icon present. Description about Exonome displays correctly: 'Campus Needs is a student-run marketplace at the University of San Francisco, powered by Exonome.' Quick Links section with all 4 page links present. Copyright text '© 2026 Campus Needs' displays correctly."
 
   - task: "Navigation Functionality"
     implemented: true
@@ -374,7 +392,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ List Your Item page fully functional at /list-your-item. Page header 'List your item or service' with subheading present. Light green info box (#E8F5ED) with text 'Only @usfca.edu email addresses are accepted...' displays correctly. All form fields present: Full name, USF email, Category dropdown (with all 4 categories), Item name, Description, Price, Location, Notes (optional). Submit button 'Submit My Listing' present. Disclaimer text below form. Email validation works: non-usfca.edu emails show error message 'Please enter a valid @usfca.edu email address'. Successful submission with @usfca.edu email shows success message 'Listing submitted!' with green checkmark icon. Nav link 'List Your Item' appears in header between 'How It Works' and 'About'."
+        comment: "✅ UPDATED: List Your Item page fully functional at /list-your-item. Page header 'List your item or service' with subheading present. Light green info box (#E8F5ED) with text 'Only @usfca.edu email addresses are accepted...' displays correctly. Category dropdown now shows ONLY 2 live categories: 'Home and Living' and 'Study and Class Essentials' (old categories removed). All other form fields present: Full name, USF email, Item name, Description, Price, Location, Notes (optional). Submit button 'Submit My Listing' present. Note below form contains 'listings@campusneeds.me'. Email validation works: non-usfca.edu emails show error message. Successful submission with @usfca.edu email shows success message."
+      - working: true
+        agent: "testing"
+        comment: "Previous: List Your Item page fully functional at /list-your-item. Page header 'List your item or service' with subheading present. Light green info box (#E8F5ED) with text 'Only @usfca.edu email addresses are accepted...' displays correctly. All form fields present: Full name, USF email, Category dropdown (with all 4 categories), Item name, Description, Price, Location, Notes (optional). Submit button 'Submit My Listing' present. Disclaimer text below form. Email validation works: non-usfca.edu emails show error message 'Please enter a valid @usfca.edu email address'. Successful submission with @usfca.edu email shows success message 'Listing submitted!' with green checkmark icon. Nav link 'List Your Item' appears in header between 'How It Works' and 'About'."
 
   - task: "CHANGE 3 - Trust Bar on Homepage"
     implemented: true
@@ -426,10 +447,10 @@ frontend:
 
 metadata:
   created_by: "testing_agent"
-  version: "2.0"
-  test_sequence: 3
+  version: "3.0"
+  test_sequence: 4
   run_ui: true
-  last_tested: "2026-03-24"
+  last_tested: "2025-04-05"
 
 test_plan:
   current_focus: []
@@ -446,3 +467,5 @@ agent_communication:
     message: "UPDATE: Comprehensive testing of all 8 changes completed. 7 out of 8 changes are working correctly. CRITICAL BUG found in CHANGE 8 (Mobile Hamburger Menu) - menu overlay does not close when clicking links or X button, blocking user interaction on mobile devices. All other changes (Logo, List Your Item page, Trust Bar, CTA Banner, Footer text, Onboarding modal, SEO titles) are fully functional and working as expected."
   - agent: "testing"
     message: "RE-TEST COMPLETE: CHANGE 8 (Mobile Hamburger Menu) has been successfully fixed! All 8 changes are now working correctly. The mobile menu overlay now properly closes when clicking nav links or the X button by completely removing the overlay from the DOM. Tested all requirements: (1) All 5 nav links visible in mobile menu, (2) Browse Listings button visible, (3) Clicking links navigates and closes overlay, (4) X button closes overlay. Also verified all quick checks: page titles, logo image classes, nav link positioning, footer text, and email validation. The Campus Needs website is now fully functional on both desktop and mobile viewports."
+  - agent: "testing"
+    message: "MAJOR UPDATE TESTING COMPLETE (2025-04-05): Comprehensive testing of all new changes completed successfully. All requirements verified: ✅ Categories page redesigned with 'Live Now' (2 green cards) and 'Coming Soon' (2 grayed cards with gold badges) sections. ✅ Homepage hero updated with new copy ('Your campus. Your exchange.' and 'Buy and sell what you actually need...'). ✅ CTA buttons changed from 'Browse Listings' to 'Browse Marketplace' across all pages. ✅ Only 2 live category cards shown on homepage. ✅ List Your Item dropdown shows only 2 live categories. ✅ Footer completely redesigned with new structure (logo, tagline, email, Browse Marketplace button, copyright). ✅ About page categories section shows all 4 categories with 'Soon' tags on coming soon items. ✅ All old category names (Convenience Runs, Dorm Essentials, Course Materials) completely removed from entire website. The Campus Needs website is fully functional and meets all new requirements."

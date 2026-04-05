@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { OnboardingModal } from "@/components/shared/OnboardingModal";
 import { TrustBar } from "@/components/shared/TrustBar";
-import { MARKETPLACE_URL, CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
+import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -34,13 +34,12 @@ const HeroSection = () => {
               <span className="text-accent">Your exchange.</span>
             </h1>
             <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
-              Buy, sell, and borrow with verified USF students — no strangers,
-              no shipping, just your campus community.
+              Buy and sell what you actually need, with students you already trust.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Button variant="gold" size="lg" className="group" asChild>
                 <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
-                  Browse Listings
+                  Browse Marketplace
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </Button>
@@ -81,10 +80,10 @@ const CategoriesSection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="What can you find?"
-          subtitle="Four categories. One campus. Everything you need."
+          subtitle="Live categories on Campus Needs right now."
         />
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {CATEGORIES.map((cat, i) => (
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-5">
+          {LIVE_CATEGORIES.map((cat, i) => (
             <CategoryCard key={cat.id} category={cat} index={i} />
           ))}
         </div>

@@ -2,14 +2,14 @@ import { Button } from "@/components/ui/button";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SEOHead } from "@/components/shared/SEOHead";
-import { MARKETPLACE_URL, CATEGORIES } from "@/lib/constants";
+import { MARKETPLACE_URL, CATEGORIES, CONTACT_EMAIL } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, MapPin, Banknote, ShoppingBag, Sofa, BookOpen, RefreshCw } from "lucide-react";
+import { ArrowRight, ShieldCheck, MapPin, Banknote, Home, BookOpen, ShoppingBag, RefreshCw } from "lucide-react";
 
 const iconMap = {
-  ShoppingBag,
-  Sofa,
+  Home,
   BookOpen,
+  ShoppingBag,
   RefreshCw,
 };
 
@@ -58,20 +58,20 @@ export default function AboutPage() {
             className="text-base sm:text-lg text-foreground leading-relaxed"
           >
             Campus Needs is a hyper-local marketplace built exclusively for
-            University of San Francisco students. Whether you need someone to
-            grab groceries, want to sell your dorm furniture before moving out,
-            or need a textbook for next week's class — Campus Needs connects
-            you with a verified peer who goes to your school. No strangers. No
-            shipping. No overpaying. Just students helping students, right on
-            campus.
+            University of San Francisco students. Whether you need to sell your
+            dorm furniture before moving out, find a graphing calculator for
+            next week's exam, or pick up affordable apartment essentials —
+            Campus Needs connects you with a verified peer who goes to your
+            school. No strangers. No shipping. No overpaying. Just students
+            helping students, right on campus.
           </motion.p>
         </div>
       </section>
 
-      {/* Our Four Categories */}
+      {/* Our Categories */}
       <section className="py-14 sm:py-20 bg-green-tint">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Our Four Categories" />
+          <SectionHeading title="Our Categories" />
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {CATEGORIES.map((cat, i) => {
               const Icon = iconMap[cat.icon];
@@ -82,15 +82,36 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-start gap-4 p-5 rounded-xl bg-card border border-border/60 shadow-card"
+                  className={`flex items-start gap-4 p-5 rounded-xl border shadow-card ${
+                    cat.live
+                      ? "bg-card border-border/60"
+                      : "bg-muted/50 border-border/30 opacity-75"
+                  }`}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-green-tint flex items-center justify-center flex-shrink-0">
-                    {Icon && <Icon className="h-5 w-5 text-primary" />}
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                    cat.live ? "bg-green-tint" : "bg-muted"
+                  }`}>
+                    {Icon && (
+                      <Icon
+                        className={`h-5 w-5 ${
+                          cat.live ? "text-primary" : "text-muted-foreground"
+                        }`}
+                      />
+                    )}
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-foreground">
-                      {cat.name}
-                    </h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className={`text-sm font-semibold ${
+                        cat.live ? "text-foreground" : "text-muted-foreground"
+                      }`}>
+                        {cat.name}
+                      </h3>
+                      {!cat.live && (
+                        <span className="text-[10px] font-semibold text-accent bg-accent/10 px-1.5 py-0.5 rounded">
+                          Soon
+                        </span>
+                      )}
+                    </div>
                     <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                       {cat.description}
                     </p>

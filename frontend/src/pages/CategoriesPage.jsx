@@ -2,14 +2,14 @@ import { CategoryCard } from "@/components/shared/CategoryCard";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { SEOHead } from "@/components/shared/SEOHead";
-import { CATEGORIES } from "@/lib/constants";
+import { LIVE_CATEGORIES, COMING_SOON_CATEGORIES } from "@/lib/constants";
 
 export default function CategoriesPage() {
   return (
     <>
       <SEOHead
         title="Browse Categories — Campus Needs"
-        description="Explore Convenience Runs, Dorm Essentials, Course Materials, and Short Term Borrowing on Campus Needs."
+        description="Explore Home and Living, Study and Class Essentials, and more on Campus Needs — the verified USF student marketplace."
       />
       {/* Page Header */}
       <section className="bg-hero-gradient">
@@ -23,11 +23,30 @@ export default function CategoriesPage() {
         </div>
       </section>
 
-      {/* Category Grid */}
+      {/* Live Now */}
       <section className="py-14 sm:py-16 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {CATEGORIES.map((cat, i) => (
+          <SectionHeading
+            title="Live Now"
+            subtitle="Browse active listings from verified USF students."
+          />
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {LIVE_CATEGORIES.map((cat, i) => (
+              <CategoryCard key={cat.id} category={cat} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Soon */}
+      <section className="py-14 sm:py-16 bg-green-tint">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            title="Coming Soon"
+            subtitle="New categories launching soon. Stay tuned."
+          />
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {COMING_SOON_CATEGORIES.map((cat, i) => (
               <CategoryCard key={cat.id} category={cat} index={i} />
             ))}
           </div>

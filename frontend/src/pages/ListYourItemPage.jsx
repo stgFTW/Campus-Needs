@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SEOHead } from "@/components/shared/SEOHead";
-import { CATEGORIES } from "@/lib/constants";
+import { LIVE_CATEGORIES, LISTINGS_EMAIL } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { Info, CheckCircle } from "lucide-react";
 
@@ -152,7 +152,7 @@ export default function ListYourItemPage() {
                       <SelectValue placeholder="Select a category" />
                     </SelectTrigger>
                     <SelectContent>
-                      {CATEGORIES.map((cat) => (
+                      {LIVE_CATEGORIES.map((cat) => (
                         <SelectItem key={cat.id} value={cat.id}>
                           {cat.name}
                         </SelectItem>
@@ -170,7 +170,7 @@ export default function ListYourItemPage() {
                     id="itemName"
                     type="text"
                     required
-                    placeholder="e.g. Mini-fridge, Grocery run, Organic Chemistry textbook"
+                    placeholder="e.g. Mini-fridge, Graphing calculator, Desk lamp"
                     value={formData.itemName}
                     onChange={(e) => handleChange("itemName", e.target.value)}
                     className="h-11"
@@ -248,6 +248,18 @@ export default function ListYourItemPage() {
                   By submitting this form, you confirm that you are a current USF
                   student and that all item details are accurate and honestly
                   described.
+                </p>
+
+                {/* Review note */}
+                <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                  We review every listing before it goes live. You will hear back
+                  within 24 hours at{" "}
+                  <a
+                    href={`mailto:${LISTINGS_EMAIL}`}
+                    className="text-primary hover:underline"
+                  >
+                    {LISTINGS_EMAIL}
+                  </a>
                 </p>
               </form>
             </motion.div>

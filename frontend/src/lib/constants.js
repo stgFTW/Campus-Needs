@@ -1,44 +1,54 @@
 export const MARKETPLACE_URL = "https://www.trickly.io/market/CampusNeeds";
 
+export const CONTACT_EMAIL = "hello@campusneeds.me";
+export const LISTINGS_EMAIL = "listings@campusneeds.me";
+
 export const CATEGORIES = [
   {
-    id: "convenience-runs",
-    name: "Convenience Runs",
-    icon: "ShoppingBag",
+    id: "home-and-living",
+    name: "Home and Living",
+    icon: "Home",
     description:
-      "Peer grocery runs, Target pickups, and campus errands handled by a fellow USF student.",
+      "Secondhand furniture, lamps, mini fridges, and apartment essentials. Perfect for move-in and move-out.",
+    live: true,
   },
   {
-    id: "dorm-essentials",
-    name: "Dorm Essentials",
-    icon: "Sofa",
-    description:
-      "Affordable secondhand furniture, lamps, mini-fridges, and home basics from students on campus.",
-  },
-  {
-    id: "course-materials",
-    name: "Course Materials",
+    id: "study-and-class-essentials",
+    name: "Study and Class Essentials",
     icon: "BookOpen",
     description:
-      "Used textbooks, calculators, and class gear from students who just finished the course.",
+      "Graphing calculators, HDMI adapters, USB drives, lab supplies, and gear your professors actually require.",
+    live: true,
+  },
+  {
+    id: "campus-errands",
+    name: "Campus Errands",
+    icon: "ShoppingBag",
+    description:
+      "Need a grocery run or pharmacy pickup? A fellow student has you covered.",
+    live: false,
   },
   {
     id: "short-term-borrowing",
     name: "Short Term Borrowing",
     icon: "RefreshCw",
     description:
-      "Borrow items you only need once \u2014 luggage, steamers, folding carts, and toolkits.",
+      "Borrow luggage, tools, or a steamer for a week. No need to buy what you only need once.",
+    live: false,
   },
 ];
+
+export const LIVE_CATEGORIES = CATEGORIES.filter((c) => c.live);
+export const COMING_SOON_CATEGORIES = CATEGORIES.filter((c) => !c.live);
 
 export const HOW_IT_WORKS_STEPS = [
   {
     step: 1,
     title: "Browse",
     description:
-      "Explore listings from verified USF students across 4 categories.",
+      "Explore listings from verified USF students across our live categories.",
     detail:
-      "Browse through convenience runs, dorm essentials, course materials, and items available for short-term borrowing. Every listing is posted by a verified USF student, so you know exactly who you're dealing with.",
+      "Browse through Home and Living essentials, Study and Class gear, and more as we expand. Every listing is posted by a verified USF student, so you know exactly who you're dealing with.",
   },
   {
     step: 2,
