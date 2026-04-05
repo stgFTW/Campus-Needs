@@ -62,7 +62,7 @@ export const Header = () => {
               asChild
             >
               <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
-                Browse Listings
+                Browse Marketplace
               </a>
             </Button>
             <button
