@@ -1,8 +1,8 @@
 import { Home, BookOpen, ShoppingBag, RefreshCw } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MARKETPLACE_URL } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 const iconMap = {
@@ -45,9 +45,9 @@ export const CategoryCard = ({ category, index = 0 }) => {
               className="w-full"
               asChild
             >
-              <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+              <Link to={`/listings?category=${category.id}`}>
                 Browse Listings
-              </a>
+              </Link>
             </Button>
           </CardFooter>
         </Card>

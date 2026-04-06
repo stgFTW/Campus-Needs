@@ -6,6 +6,7 @@ import HomePage from "@/pages/HomePage";
 import CategoriesPage from "@/pages/CategoriesPage";
 import HowItWorksPage from "@/pages/HowItWorksPage";
 import ListYourItemPage from "@/pages/ListYourItemPage";
+import ListingsPage from "@/pages/ListingsPage";
 import AboutPage from "@/pages/AboutPage";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/categories" element={<CategoriesPage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/listings" element={<ListingsPage />} />
             <Route path="/list-your-item" element={<ListYourItemPage />} />
             <Route path="/about" element={<AboutPage />} />
           </Route>
