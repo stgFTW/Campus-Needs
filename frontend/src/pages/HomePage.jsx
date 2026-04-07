@@ -21,7 +21,7 @@ const HeroSection = () => {
         backgroundSize: '32px 32px'
       }} />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -29,7 +29,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
               Your campus.
               <br />
               <span className="text-accent">Your exchange.</span>
@@ -38,19 +38,19 @@ const HeroSection = () => {
               The marketplace built for USF students
             </h2>
             <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
-              The only marketplace built for USF students. Buy furniture, sell textbooks, borrow gear from Dons you actually go to school with. No sketchy strangers. Just your campus.
+              The only marketplace built for USF students. Buy furniture, sell textbooks, borrow gear from Dons you actually go to school with.
             </p>
             <p className="text-sm text-primary-foreground/60">
               17 listings live <span className="text-accent">·</span> USF students only <span className="text-accent">·</span> Free to browse
             </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Button variant="gold" size="lg" className="group" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
                 <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
                   Browse the Exchange
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="hero-outline" size="lg" asChild>
+              <Button variant="hero-outline" size="lg" className="w-full sm:w-auto" asChild>
                 <a href="#how-it-works">
                   How does it work?
                   <ChevronDown className="h-4 w-4" />
@@ -83,7 +83,7 @@ const HeroSection = () => {
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 bg-green-tint">
+    <section id="how-it-works" className="py-12 sm:py-20 bg-green-tint">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="How It Works"
@@ -101,7 +101,7 @@ const HowItWorksSection = () => {
 
 const CategoriesSection = () => {
   return (
-    <section className="py-16 sm:py-20 bg-background">
+    <section className="py-12 sm:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="What can you find?"
@@ -116,7 +116,7 @@ const CategoriesSection = () => {
           <p className="text-sm text-muted-foreground">
             More categories launching this semester.
           </p>
-          <Button variant="gold" size="default" className="group" asChild>
+          <Button variant="gold" size="default" className="w-full sm:w-auto group" asChild>
             <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
               Browse all listings
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -129,21 +129,29 @@ const CategoriesSection = () => {
 };
 
 const FeaturedListings = () => {
-  const featured = [...HOME_LISTINGS.slice(0, 3), ...STUDY_LISTINGS.slice(0, 3)];
+  const allFeatured = [...HOME_LISTINGS.slice(0, 3), ...STUDY_LISTINGS.slice(0, 3)];
+  const mobileFeatured = [...HOME_LISTINGS.slice(0, 2), ...STUDY_LISTINGS.slice(0, 2)];
   return (
-    <section className="py-16 sm:py-20 bg-green-tint">
+    <section className="py-12 sm:py-20 bg-green-tint">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="What's available right now"
           subtitle="Real listings from USF students, student priced, pickup only."
         />
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featured.map((listing, i) => (
+        {/* Mobile: 4 cards in 2-col grid */}
+        <div className="mt-10 grid grid-cols-2 sm:hidden gap-4">
+          {mobileFeatured.map((listing, i) => (
+            <ProductCard key={listing.id} listing={listing} index={i} />
+          ))}
+        </div>
+        {/* Desktop: 6 cards in 2/3-col grid */}
+        <div className="mt-10 hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allFeatured.map((listing, i) => (
             <ProductCard key={listing.id} listing={listing} index={i} />
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Button variant="gold" size="lg" className="group" asChild>
+          <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
             <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
               Browse the Exchange
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -158,7 +166,7 @@ const FeaturedListings = () => {
 const ListItemBanner = () => {
   return (
     <section className="bg-primary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +181,7 @@ const ListItemBanner = () => {
             Submit your item or service. We verify your USF email and list it for you.
           </p>
           <div className="pt-2">
-            <Button variant="gold" size="lg" className="group" asChild>
+            <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
               <Link to="/list-your-item">
                 List Your Item
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -207,7 +215,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20" style={{ backgroundColor: "#F5F5F5" }}>
+    <section className="py-12 sm:py-20" style={{ backgroundColor: "#F5F5F5" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
@@ -226,7 +234,7 @@ const FAQSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.35, delay: i * 0.06 }}
-              className="rounded-xl border border-border/60 bg-card p-6 shadow-card"
+              className="rounded-xl border border-border/60 bg-card p-4 sm:p-6 shadow-card"
             >
               <h3 className="text-sm font-semibold text-foreground mb-2">
                 {faq.q}
