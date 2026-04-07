@@ -34,6 +34,9 @@ const HeroSection = () => {
               <br />
               <span className="text-accent">Your exchange.</span>
             </h1>
+            <h2 className="text-lg sm:text-xl font-medium text-primary-foreground/70">
+              The marketplace built for USF students
+            </h2>
             <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
               The only marketplace built for USF students. Buy furniture, sell textbooks, borrow gear from Dons you actually go to school with. No sketchy strangers. Just your campus.
             </p>
@@ -243,8 +246,8 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title="Campus Needs — USF Student Marketplace"
-        description="Buy, sell, and borrow with verified USF students. Campus Needs is the trusted peer-to-peer marketplace for University of San Francisco students."
+        title="Campus Needs – Buy & Sell at USF | Student Marketplace"
+        description="The USF-only student marketplace. Buy dorm furniture, sell textbooks, borrow gear from verified USFCA students. Free to browse."
       />
       <OnboardingModal />
       <HeroSection />
