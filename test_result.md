@@ -613,10 +613,82 @@ frontend:
         agent: "testing"
         comment: "✅ CRITICAL ROUTING CHECK PASSED. Verified that ONLY 'Buy on Campus Needs' buttons on product cards link externally to https://www.trickly.io/market/CampusNeeds. All other Browse/Listings buttons are internal /listings links: Hero button, View All Listings button, Header nav link, Header CTA button, Category card buttons. Routing architecture correctly implemented."
 
+  - task: "NEW CHANGE 1 - Hero Buttons Restructure"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Hero buttons completely restructured and correct. Primary gold button 'Browse the Exchange' links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Secondary outline button 'How does it work?' links to #how-it-works anchor. Gold button comes FIRST (left), outline button comes SECOND (right). NO 'List Your Item' or 'Browse Listings' button in hero section. Button order and styling verified."
+
+  - task: "NEW CHANGE 2 - Hero Subtext Update"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Hero subtext updated correctly. Paragraph contains 'The only marketplace built for USF students' and 'Dons you actually go to school with'. Full text: 'The only marketplace built for USF students. Buy furniture, sell textbooks, borrow gear from Dons you actually go to school with. No sketchy strangers. Just your campus.' All required phrases present."
+
+  - task: "NEW CHANGE 3 - Hero Social Proof"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Hero social proof section added correctly. Small muted text displays '17 listings live · USF students only · Free to browse' below subtext. Gold dot separators (text-accent class) used between items. All three social proof items present with correct styling."
+
+  - task: "NEW CHANGE 4 - Categories Simplification"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx, /app/frontend/src/pages/CategoriesPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Categories simplified on BOTH pages. Homepage (/): Only 2 live category cards (Home and Living, Study and Class Essentials), NO Coming Soon cards. Categories page (/categories): Only 2 live cards in 'Live Now' section, NO Coming Soon section. Both pages have muted text 'More categories launching this semester.' below cards. Both pages have gold 'Browse all listings →' button linking to https://www.trickly.io/market/CampusNeeds with target='_blank'. All requirements met."
+
+  - task: "NEW CHANGE 5 - FAQ Section"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): FAQ section added correctly on homepage. 'Quick Answers' bold centered heading present. Background color #F5F5F5 (rgb(245, 245, 245)) verified. 4 Q&A cards in 2-column grid (grid-cols-1 md:grid-cols-2) on desktop. All answers visible (no accordion). White cards with border (border border-border/60) and rounded corners (rounded-xl). All 4 questions present: Q1 'How does pickup work?', Q2 'Is it free to browse and buy?', Q3 'How do I know sellers are real USF students?', Q4 'How do I list something?'. All requirements met."
+
+  - task: "NEW CHANGE 6 - Footer Restructure"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/layout/Footer.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Footer completely restructured with 4 columns. Column 1 (Brand): Logo, 'Campus Needs' text, tagline 'Your campus. Your exchange.' in gold, email hello@campusneeds.me, description 'A USF-only peer-to-peer marketplace. Powered by Exonome.' Column 2 (Explore): Browse Exchange, Categories, How It Works, About. Column 3 (Sellers): List Your Item, Email Listings (mailto:listings@campusneeds.me), Get Support (mailto:support@campusneeds.me). Column 4 (Legal): Privacy Policy (/privacy), Terms of Use (/terms). Bottom bar: '© 2026 Campus Needs. Built for USF students only.' on left, 'Powered by Exonome' on right. NO 'Made with Emergent' badge visible. All links functional and pointing to correct destinations."
+
 metadata:
   created_by: "testing_agent"
-  version: "5.0"
-  test_sequence: 6
+  version: "6.0"
+  test_sequence: 7
   run_ui: true
   last_tested: "2026-04-07"
 
@@ -641,3 +713,5 @@ agent_communication:
     message: "NEW LISTINGS FEATURE TESTING COMPLETE (2025-04-06): Comprehensive testing of all 7 new changes completed successfully. All requirements verified: ✅ CHANGE 1: Listings data loads (15 product cards, exceeds requirement of at least 13). ✅ CHANGE 2: Listings page structure complete with green header, 3 filter tabs, proper filtering (8 home, 9 study, 15 all), product cards with all elements. ✅ CHANGE 3: Product card styling correct (condition badges in proper colors, prices in green, FREE label in gold). ✅ CHANGE 4: /listings route works. ✅ CHANGE 5: Category card buttons link internally to /listings?category=... ✅ CHANGE 6: Homepage has Featured Listings section with 6 cards, all buttons link internally. ✅ CHANGE 7: Header nav updated with Browse Listings link in correct position, mobile menu works. ✅ CRITICAL ROUTING: Only 'Buy on Campus Needs' buttons link externally to trickly.io, all other Browse/Listings buttons are internal. The Campus Needs website listings feature is fully functional."
   - agent: "testing"
     message: "HOMEPAGE RESTRUCTURE TESTING COMPLETE (2026-04-07): Comprehensive testing of all new requirements completed successfully. ALL TESTS PASSED: ✅ HOMEPAGE: Hero buttons correct (How It Works scrolls to anchor, List Your Item links to /list-your-item, NO Browse Listings button). Section order correct (How It Works BEFORE Categories). Product cards show 'View on Exchange' button (NOT 'Buy on Campus Needs'). Gold 'Browse the Exchange' button after featured listings links to marketplace. ✅ HEADER: Nav links correct (Home, Categories, How It Works, List Your Item, About - NO Browse Listings). Gold CTA button 'Browse Exchange' links to marketplace. ✅ FOOTER: Four columns complete (Brand, Explore, Sellers, Legal). Copyright '© 2026 Campus Needs'. Privacy/Terms links work. ✅ PRIVACY PAGE: All sections present, email links clickable. ✅ TERMS PAGE: All sections present. ✅ LISTINGS REDIRECT: /listings redirects to marketplace, old page NOT shown. ✅ PRODUCT CARDS: All 'View on Exchange' buttons link to marketplace. The Campus Needs website is fully functional and meets all new requirements."
+  - agent: "testing"
+    message: "LATEST UPDATE TESTING COMPLETE (2026-04-07): Comprehensive testing of 6 NEW changes completed successfully. ALL TESTS PASSED: ✅ CHANGE 1 (Hero Buttons): Primary gold 'Browse the Exchange' button comes FIRST (left), secondary outline 'How does it work?' button comes SECOND (right). Gold button links to marketplace with target='_blank', outline button scrolls to #how-it-works. NO 'List Your Item' or 'Browse Listings' button in hero. ✅ CHANGE 2 (Hero Subtext): Contains 'The only marketplace built for USF students' and 'Dons you actually go to school with'. ✅ CHANGE 3 (Hero Social Proof): '17 listings live · USF students only · Free to browse' with gold dot separators. ✅ CHANGE 4 (Categories): Only 2 live category cards on BOTH homepage and categories page, NO Coming Soon cards/section. Both pages have 'More categories launching this semester.' text and gold 'Browse all listings →' button. ✅ CHANGE 5 (FAQ Section): 'Quick Answers' bold centered heading, background #F5F5F5, 4 Q&A cards in 2-column grid, all answers visible (no accordion), white cards with border and rounded corners. All 4 questions present. ✅ CHANGE 6 (Footer): 4 columns (Brand, Explore, Sellers, Legal) with all correct content. Copyright '© 2026 Campus Needs. Built for USF students only.' and 'Powered by Exonome'. NO 'Made with Emergent' badge. All requirements met. The Campus Needs website is fully functional."

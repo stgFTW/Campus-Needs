@@ -2,7 +2,9 @@ import { CategoryCard } from "@/components/shared/CategoryCard";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { CTABanner } from "@/components/shared/CTABanner";
 import { SEOHead } from "@/components/shared/SEOHead";
-import { LIVE_CATEGORIES, COMING_SOON_CATEGORIES } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
+import { LIVE_CATEGORIES, MARKETPLACE_URL } from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
 
 export default function CategoriesPage() {
   return (
@@ -23,7 +25,7 @@ export default function CategoriesPage() {
         </div>
       </section>
 
-      {/* Live Now */}
+      {/* Live Categories */}
       <section className="py-14 sm:py-16 bg-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -35,20 +37,16 @@ export default function CategoriesPage() {
               <CategoryCard key={cat.id} category={cat} index={i} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Coming Soon */}
-      <section className="py-14 sm:py-16 bg-green-tint">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Coming Soon"
-            subtitle="New categories launching soon. Stay tuned."
-          />
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {COMING_SOON_CATEGORIES.map((cat, i) => (
-              <CategoryCard key={cat.id} category={cat} index={i} />
-            ))}
+          <div className="mt-8 text-center space-y-4">
+            <p className="text-sm text-muted-foreground">
+              More categories launching this semester.
+            </p>
+            <Button variant="gold" size="default" className="group" asChild>
+              <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+                Browse all listings
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>

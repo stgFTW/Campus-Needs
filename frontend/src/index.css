@@ -186,3 +186,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Hide Emergent badge */
+[data-emergent-badge],
+.emergent-badge,
+a[href*="emergent.sh"],
+div[class*="emergent"],
+.powered-by-emergent {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}

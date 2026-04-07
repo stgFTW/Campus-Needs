@@ -2,6 +2,7 @@ export const MARKETPLACE_URL = "https://www.trickly.io/market/CampusNeeds";
 
 export const CONTACT_EMAIL = "hello@campusneeds.me";
 export const LISTINGS_EMAIL = "listings@campusneeds.me";
+export const SUPPORT_EMAIL = "support@campusneeds.me";
 
 export const CATEGORIES = [
   {

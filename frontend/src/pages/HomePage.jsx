@@ -35,20 +35,23 @@ const HeroSection = () => {
               <span className="text-accent">Your exchange.</span>
             </h1>
             <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
-              Buy and sell what you actually need, with students you already trust.
+              The only marketplace built for USF students. Buy furniture, sell textbooks, borrow gear from Dons you actually go to school with. No sketchy strangers. Just your campus.
+            </p>
+            <p className="text-sm text-primary-foreground/60">
+              17 listings live <span className="text-accent">·</span> USF students only <span className="text-accent">·</span> Free to browse
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
-              <Button variant="hero-outline" size="lg" asChild>
-                <a href="#how-it-works">
-                  How It Works
-                  <ChevronDown className="h-4 w-4" />
+              <Button variant="gold" size="lg" className="group" asChild>
+                <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+                  Browse the Exchange
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="gold" size="lg" className="group" asChild>
-                <Link to="/list-your-item">
-                  List Your Item
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
+              <Button variant="hero-outline" size="lg" asChild>
+                <a href="#how-it-works">
+                  How does it work?
+                  <ChevronDown className="h-4 w-4" />
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -105,6 +108,17 @@ const CategoriesSection = () => {
           {LIVE_CATEGORIES.map((cat, i) => (
             <CategoryCard key={cat.id} category={cat} index={i} />
           ))}
+        </div>
+        <div className="mt-8 text-center space-y-4">
+          <p className="text-sm text-muted-foreground">
+            More categories launching this semester.
+          </p>
+          <Button variant="gold" size="default" className="group" asChild>
+            <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+              Browse all listings
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>
@@ -169,6 +183,62 @@ const ListItemBanner = () => {
   );
 };
 
+const FAQSection = () => {
+  const faqs = [
+    {
+      q: "How does pickup work?",
+      a: "You and the seller agree on a time and spot on campus. No shipping, no strangers from outside USF.",
+    },
+    {
+      q: "Is it free to browse and buy?",
+      a: "Yes \u2014 free to browse, free to buy. Sellers pay a small commission only when something sells.",
+    },
+    {
+      q: "How do I know sellers are real USF students?",
+      a: "Every seller is verified with a USF email. You\u2019re always buying from a Don.",
+    },
+    {
+      q: "How do I list something?",
+      a: "Fill out the form on the List Your Item page with your USF email and we\u2019ll get it live within 24 hours.",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20" style={{ backgroundColor: "#F5F5F5" }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-10"
+        >
+          Quick Answers
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {faqs.map((faq, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.35, delay: i * 0.06 }}
+              className="rounded-xl border border-border/60 bg-card p-6 shadow-card"
+            >
+              <h3 className="text-sm font-semibold text-foreground mb-2">
+                {faq.q}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {faq.a}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function HomePage() {
   return (
     <>
@@ -183,6 +253,7 @@ export default function HomePage() {
       <CategoriesSection />
       <FeaturedListings />
       <ListItemBanner />
+      <FAQSection />
       <CTABanner />
     </>
   );

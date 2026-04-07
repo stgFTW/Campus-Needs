@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MARKETPLACE_URL, CONTACT_EMAIL, LISTINGS_EMAIL } from "@/lib/constants";
+import { MARKETPLACE_URL, CONTACT_EMAIL, LISTINGS_EMAIL, SUPPORT_EMAIL } from "@/lib/constants";
 
 export const Footer = () => {
   return (
@@ -28,6 +28,9 @@ export const Footer = () => {
               >
                 {CONTACT_EMAIL}
               </a>
+            </p>
+            <p className="text-xs text-primary-foreground/50 leading-relaxed">
+              A USF-only peer-to-peer marketplace. Powered by Exonome.
             </p>
           </div>
 
@@ -81,7 +84,7 @@ export const Footer = () => {
                 Email Listings
               </a>
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href={`mailto:${SUPPORT_EMAIL}`}
                 className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
               >
                 Get Support
@@ -109,10 +112,13 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Divider + Copyright */}
-        <div className="mt-10 pt-6 border-t border-primary-foreground/10">
-          <p className="text-xs text-primary-foreground/50 text-center">
-            © 2026 Campus Needs
+        {/* Divider + Bottom bar */}
+        <div className="mt-10 pt-6 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-xs text-primary-foreground/50">
+            © 2026 Campus Needs. Built for USF students only.
+          </p>
+          <p className="text-xs text-primary-foreground/40">
+            Powered by Exonome
           </p>
         </div>
       </div>
