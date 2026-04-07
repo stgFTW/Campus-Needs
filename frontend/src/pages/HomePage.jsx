@@ -6,11 +6,11 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { OnboardingModal } from "@/components/shared/OnboardingModal";
 import { TrustBar } from "@/components/shared/TrustBar";
+import { ProductCard } from "@/components/shared/ProductCard";
 import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS, HOME_LISTINGS, STUDY_LISTINGS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ProductCard } from "@/components/shared/ProductCard";
 
 const HeroSection = () => {
   return (
@@ -38,17 +38,17 @@ const HeroSection = () => {
               Buy and sell what you actually need, with students you already trust.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
-              <Button variant="gold" size="lg" className="group" asChild>
-                <Link to="/listings">
-                  Browse Listings
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
-              </Button>
               <Button variant="hero-outline" size="lg" asChild>
                 <a href="#how-it-works">
                   How It Works
                   <ChevronDown className="h-4 w-4" />
                 </a>
+              </Button>
+              <Button variant="gold" size="lg" className="group" asChild>
+                <Link to="/list-your-item">
+                  List Your Item
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
               </Button>
             </div>
           </motion.div>
@@ -75,27 +75,18 @@ const HeroSection = () => {
   );
 };
 
-const FeaturedListings = () => {
-  const featured = [...HOME_LISTINGS.slice(0, 3), ...STUDY_LISTINGS.slice(0, 3)];
+const HowItWorksSection = () => {
   return (
-    <section className="py-16 sm:py-20 bg-background">
+    <section id="how-it-works" className="py-16 sm:py-20 bg-green-tint">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="What's available right now"
-          subtitle="Real listings from USF students, student priced, pickup only."
+          title="How It Works"
+          subtitle="Three simple steps to get what you need from your campus community."
         />
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featured.map((listing, i) => (
-            <ProductCard key={listing.id} listing={listing} index={i} />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+          {HOW_IT_WORKS_STEPS.map((step, i) => (
+            <StepCard key={step.step} step={step} index={i} />
           ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Button variant="outline" size="lg" asChild>
-            <Link to="/listings">
-              View All Listings
-              <ArrowRight className="h-4 w-4 ml-2" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>
@@ -120,18 +111,27 @@ const CategoriesSection = () => {
   );
 };
 
-const HowItWorksSection = () => {
+const FeaturedListings = () => {
+  const featured = [...HOME_LISTINGS.slice(0, 3), ...STUDY_LISTINGS.slice(0, 3)];
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 bg-green-tint">
+    <section className="py-16 sm:py-20 bg-green-tint">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="How It Works"
-          subtitle="Three simple steps to get what you need from your campus community."
+          title="What's available right now"
+          subtitle="Real listings from USF students, student priced, pickup only."
         />
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-          {HOW_IT_WORKS_STEPS.map((step, i) => (
-            <StepCard key={step.step} step={step} index={i} />
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featured.map((listing, i) => (
+            <ProductCard key={listing.id} listing={listing} index={i} />
           ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Button variant="gold" size="lg" className="group" asChild>
+            <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+              Browse the Exchange
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>
@@ -179,9 +179,9 @@ export default function HomePage() {
       <OnboardingModal />
       <HeroSection />
       <TrustBar />
-      <FeaturedListings />
-      <CategoriesSection />
       <HowItWorksSection />
+      <CategoriesSection />
+      <FeaturedListings />
       <ListItemBanner />
       <CTABanner />
     </>

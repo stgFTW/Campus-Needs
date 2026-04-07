@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test all 7 changes on the Campus Needs website at http://localhost:3000: 1) LISTINGS DATA - verify at least 13 product cards load at /listings, 2) LISTINGS PAGE - verify page structure, category filters, product cards, 3) PRODUCT CARD - verify condition badges, prices in green, FREE label in gold, 4) APP ROUTING - verify /listings route works, 5) CATEGORY CARD LINKS - verify Browse Listings buttons link to /listings internally (not trickly.io), 6) HOMEPAGE - verify hero button, Featured Listings section with 6 cards, View All Listings button, 7) HEADER NAV - verify Browse Listings links in header nav and mobile menu. CRITICAL: Only 'Buy on Campus Needs' buttons should link externally to trickly.io, all other Browse/Listings buttons should be internal /listings links."
+user_problem_statement: "Test all changes on the Campus Needs website at http://localhost:3000: HOMEPAGE RESTRUCTURE (hero buttons, section order, product cards, Browse the Exchange button), HEADER (nav links, CTA button), FOOTER (four columns, copyright, legal links), PRIVACY PAGE (sections, email links), TERMS PAGE (sections), LISTINGS REDIRECT (/listings redirects to marketplace), PRODUCT CARDS (View on Exchange buttons)."
 
 backend:
   - task: "Backend API endpoints"
@@ -128,10 +128,46 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ UPDATED: Hero section fully functional with NEW copy. Headline 'Your campus. Your exchange.' displays correctly with gold accent on 'Your exchange'. Subheadline 'Buy and sell what you actually need, with students you already trust.' is correct. Hero image of students displays correctly. CTA button now says 'Browse Marketplace' (NOT 'Browse Listings') and links to https://www.trickly.io/market/CampusNeeds. 'How It Works' button present and functional."
+        comment: "✅ VERIFIED (2026-04-07): Hero section restructured correctly. Two buttons present: 'How It Works' (scrolls to #how-it-works anchor) and 'List Your Item' (links to /list-your-item). NO 'Browse Listings' button in hero (correct). Headline 'Your campus. Your exchange.' displays with gold accent. Subheadline 'Buy and sell what you actually need, with students you already trust.' is correct. Hero image displays properly."
       - working: true
         agent: "testing"
-        comment: "Previous: Hero section fully functional. Headline 'Your campus. Your exchange.' displays correctly with gold accent on 'Your exchange'. Subheadline about USF students present. Hero image of students displays correctly. Both 'Browse Listings' and 'How It Works' buttons present and functional."
+        comment: "Previous: Hero section fully functional with NEW copy. Headline 'Your campus. Your exchange.' displays correctly with gold accent on 'Your exchange'. Subheadline 'Buy and sell what you actually need, with students you already trust.' is correct. Hero image of students displays correctly. CTA button now says 'Browse Marketplace' (NOT 'Browse Listings') and links to https://www.trickly.io/market/CampusNeeds. 'How It Works' button present and functional."
+
+  - task: "Homepage - Section Order"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Section order after hero+trustbar is CORRECT: How It Works → Categories → Featured Listings → List Item Banner → CTA Banner. How It Works section appears BEFORE Categories section as required. All sections render in proper sequence."
+
+  - task: "Homepage - Product Cards"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/shared/ProductCard.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Product cards display 'View on Exchange' button (NOT 'Buy on Campus Needs'). All 6 product cards in Featured Listings section have correct button text. All buttons link to https://www.trickly.io/market/CampusNeeds with target='_blank'. Product cards show images, titles, descriptions, prices, and condition badges correctly."
+
+  - task: "Homepage - Browse the Exchange Button"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/HomePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Gold 'Browse the Exchange' button appears after the Featured Listings grid. Button links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Button styling is gold (variant='gold') and includes ArrowRight icon."
 
   - task: "Homepage - Category Cards Section"
     implemented: true
@@ -242,7 +278,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ Header navigation fully functional. All 5 nav links present (Home, Categories, How It Works, List Your Item, About). Green 'Browse Listings' button links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Header has sticky class and remains visible on scroll."
+        comment: "✅ VERIFIED (2026-04-07): Header navigation fully correct. Nav links in order: Home, Categories, How It Works, List Your Item, About. NO 'Browse Listings' in nav (correct). Gold CTA button says 'Browse Exchange' and links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Header has sticky positioning and green background."
+      - working: true
+        agent: "testing"
+        comment: "Previous: Header navigation fully functional. All 5 nav links present (Home, Categories, How It Works, List Your Item, About). Green 'Browse Listings' button links to https://www.trickly.io/market/CampusNeeds with target='_blank'. Header has sticky class and remains visible on scroll."
 
   - task: "CHANGE 5 - Footer Text Update"
     implemented: true
@@ -254,13 +293,10 @@ frontend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ UPDATED: Footer completely redesigned with new structure. Left side: Logo PNG image with 'Campus Needs' text, tagline 'Your campus. Your exchange.' in gold, and email 'hello@campusneeds.me'. Right side: Gold 'Browse Marketplace' button linking to https://www.trickly.io/market/CampusNeeds. Bottom: Copyright '© 2025 Campus Needs. Built for USF students.' All old footer content removed (no 'powered by Exonome', no 'No account needed' text, no Quick Links section). Footer displays correctly on all 5 pages."
+        comment: "✅ VERIFIED (2026-04-07): Footer completely correct with four-column structure. Column 1 (Brand): Logo PNG, 'Campus Needs' text, tagline 'Your campus. Your exchange.' in gold, email hello@campusneeds.me. Column 2 (Explore): Browse Exchange, Categories, How It Works, About. Column 3 (Sellers): List Your Item, Email Listings, Get Support. Column 4 (Legal): Privacy Policy (/privacy), Terms of Use (/terms). Copyright: '© 2026 Campus Needs'. All links functional and pointing to correct destinations."
       - working: true
         agent: "testing"
-        comment: "Previous (CHANGE 5): Footer text 'No account needed to browse. Just click a category and explore.' displays correctly on all 5 pages (Home, Categories, How It Works, List Your Item, About). Logo PNG image also present in footer. Quick Links section updated with all 5 page links including new 'List Your Item' link."
-      - working: true
-        agent: "testing"
-        comment: "Original: Footer fully functional. Logo with 'Campus Needs' text and exchange arrows icon present. Description about Exonome displays correctly: 'Campus Needs is a student-run marketplace at the University of San Francisco, powered by Exonome.' Quick Links section with all 4 page links present. Copyright text '© 2026 Campus Needs' displays correctly."
+        comment: "Previous: Footer completely redesigned with new structure. Left side: Logo PNG image with 'Campus Needs' text, tagline 'Your campus. Your exchange.' in gold, and email 'hello@campusneeds.me'. Right side: Gold 'Browse Marketplace' button linking to https://www.trickly.io/market/CampusNeeds. Bottom: Copyright '© 2025 Campus Needs. Built for USF students.' All old footer content removed (no 'powered by Exonome', no 'No account needed' text, no Quick Links section). Footer displays correctly on all 5 pages."
 
   - task: "Navigation Functionality"
     implemented: true
@@ -445,6 +481,42 @@ frontend:
         agent: "testing"
         comment: "✅ SEO page titles are correct on all 5 pages. Homepage (/): 'Campus Needs — USF Student Marketplace'. Categories (/categories): 'Browse Categories — Campus Needs'. How It Works (/how-it-works): 'How It Works — Campus Needs'. List Your Item (/list-your-item): 'List Your Item — Campus Needs'. About (/about): 'About Campus Needs — USF Student Marketplace'. All titles use SEOHead component with proper Helmet implementation."
 
+  - task: "Privacy Policy Page"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/PrivacyPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Privacy Policy page fully functional at /privacy. Page loads with 'Privacy Policy' heading. All required sections present: Who We Are, What We Collect, How We Use Your Data, Data Storage and Security, Cookies (as 'Cookies and Analytics'), Your Rights, Contact Us. Contact email hello@campusneeds.me is clickable (4 email links found on page). Page has green header with proper styling."
+
+  - task: "Terms of Use Page"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/TermsPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): Terms of Use page fully functional at /terms. Page loads with 'Terms of Use' heading. All required sections present: Agreement to Terms, Eligibility, User Conduct, Listings and Transactions, Listing Review, Limitation of Liability, Changes (as 'Changes to These Terms'), Contact Us. Contact email hello@campusneeds.me is clickable. Page has green header with proper styling."
+
+  - task: "Listings Page Redirect"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/ListingsPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ VERIFIED (2026-04-07): /listings route correctly redirects to https://www.trickly.io/market/CampusNeeds. Redirect happens via JavaScript (window.location.href). Old listings page with tabs and product grid does NOT show. Redirect is immediate and functional."
+
   - task: "NEW CHANGE 1 - Listings Data"
     implemented: true
     working: true
@@ -543,10 +615,10 @@ frontend:
 
 metadata:
   created_by: "testing_agent"
-  version: "4.0"
-  test_sequence: 5
+  version: "5.0"
+  test_sequence: 6
   run_ui: true
-  last_tested: "2025-04-06"
+  last_tested: "2026-04-07"
 
 test_plan:
   current_focus: []
@@ -567,3 +639,5 @@ agent_communication:
     message: "MAJOR UPDATE TESTING COMPLETE (2025-04-05): Comprehensive testing of all new changes completed successfully. All requirements verified: ✅ Categories page redesigned with 'Live Now' (2 green cards) and 'Coming Soon' (2 grayed cards with gold badges) sections. ✅ Homepage hero updated with new copy ('Your campus. Your exchange.' and 'Buy and sell what you actually need...'). ✅ CTA buttons changed from 'Browse Listings' to 'Browse Marketplace' across all pages. ✅ Only 2 live category cards shown on homepage. ✅ List Your Item dropdown shows only 2 live categories. ✅ Footer completely redesigned with new structure (logo, tagline, email, Browse Marketplace button, copyright). ✅ About page categories section shows all 4 categories with 'Soon' tags on coming soon items. ✅ All old category names (Convenience Runs, Dorm Essentials, Course Materials) completely removed from entire website. The Campus Needs website is fully functional and meets all new requirements."
   - agent: "testing"
     message: "NEW LISTINGS FEATURE TESTING COMPLETE (2025-04-06): Comprehensive testing of all 7 new changes completed successfully. All requirements verified: ✅ CHANGE 1: Listings data loads (15 product cards, exceeds requirement of at least 13). ✅ CHANGE 2: Listings page structure complete with green header, 3 filter tabs, proper filtering (8 home, 9 study, 15 all), product cards with all elements. ✅ CHANGE 3: Product card styling correct (condition badges in proper colors, prices in green, FREE label in gold). ✅ CHANGE 4: /listings route works. ✅ CHANGE 5: Category card buttons link internally to /listings?category=... ✅ CHANGE 6: Homepage has Featured Listings section with 6 cards, all buttons link internally. ✅ CHANGE 7: Header nav updated with Browse Listings link in correct position, mobile menu works. ✅ CRITICAL ROUTING: Only 'Buy on Campus Needs' buttons link externally to trickly.io, all other Browse/Listings buttons are internal. The Campus Needs website listings feature is fully functional."
+  - agent: "testing"
+    message: "HOMEPAGE RESTRUCTURE TESTING COMPLETE (2026-04-07): Comprehensive testing of all new requirements completed successfully. ALL TESTS PASSED: ✅ HOMEPAGE: Hero buttons correct (How It Works scrolls to anchor, List Your Item links to /list-your-item, NO Browse Listings button). Section order correct (How It Works BEFORE Categories). Product cards show 'View on Exchange' button (NOT 'Buy on Campus Needs'). Gold 'Browse the Exchange' button after featured listings links to marketplace. ✅ HEADER: Nav links correct (Home, Categories, How It Works, List Your Item, About - NO Browse Listings). Gold CTA button 'Browse Exchange' links to marketplace. ✅ FOOTER: Four columns complete (Brand, Explore, Sellers, Legal). Copyright '© 2026 Campus Needs'. Privacy/Terms links work. ✅ PRIVACY PAGE: All sections present, email links clickable. ✅ TERMS PAGE: All sections present. ✅ LISTINGS REDIRECT: /listings redirects to marketplace, old page NOT shown. ✅ PRODUCT CARDS: All 'View on Exchange' buttons link to marketplace. The Campus Needs website is fully functional and meets all new requirements."

@@ -62,7 +62,7 @@ export const ProductCard = ({ listing, index = 0 }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Buy on Campus Needs
+              View on Exchange
             </a>
           </Button>
         </CardFooter>

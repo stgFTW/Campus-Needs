@@ -8,6 +8,8 @@ import HowItWorksPage from "@/pages/HowItWorksPage";
 import ListYourItemPage from "@/pages/ListYourItemPage";
 import ListingsPage from "@/pages/ListingsPage";
 import AboutPage from "@/pages/AboutPage";
+import PrivacyPage from "@/pages/PrivacyPage";
+import TermsPage from "@/pages/TermsPage";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/listings" element={<ListingsPage />} />
             <Route path="/list-your-item" element={<ListYourItemPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

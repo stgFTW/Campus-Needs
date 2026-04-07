@@ -2,10 +2,10 @@ import { useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { MARKETPLACE_URL } from "@/lib/constants";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "Browse Listings", path: "/listings" },
   { label: "Categories", path: "/categories" },
   { label: "How It Works", path: "/how-it-works" },
   { label: "List Your Item", path: "/list-your-item" },
@@ -61,9 +61,9 @@ export const Header = () => {
               className="hidden sm:inline-flex"
               asChild
             >
-              <Link to="/listings">
-                Browse Listings
-              </Link>
+              <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+                Browse Exchange
+              </a>
             </Button>
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
@@ -98,9 +98,14 @@ export const Header = () => {
             </div>
             <div className="pt-4 pb-2">
               <Button variant="gold" size="lg" className="w-full" asChild>
-                <Link to="/listings" onClick={closeMobile}>
-                  Browse Listings
-                </Link>
+                <a
+                  href={MARKETPLACE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMobile}
+                >
+                  Browse Exchange
+                </a>
               </Button>
             </div>
           </nav>
