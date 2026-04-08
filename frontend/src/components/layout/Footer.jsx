@@ -47,16 +47,16 @@ export const Footer = () => {
                 Browse Exchange
               </a>
               <Link
-                to="/categories"
-                className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
-              >
-                Categories
-              </Link>
-              <Link
                 to="/how-it-works"
                 className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
               >
                 How It Works
+              </Link>
+              <Link
+                to="/list-your-item"
+                className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
+              >
+                List Your Item
               </Link>
               <Link
                 to="/about"
@@ -77,18 +77,21 @@ export const Footer = () => {
               >
                 List Your Item
               </Link>
-              <a
-                href={`mailto:${LISTINGS_EMAIL}`}
+              <Link
+                to="/how-it-works"
                 className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
               >
-                Email Listings
-              </a>
-              <a
-                href={`mailto:${SUPPORT_EMAIL}`}
-                className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
-              >
-                Get Support
-              </a>
+                Seller Guidelines
+              </Link>
+              <p className="text-sm text-primary-foreground/70">
+                Contact:{" "}
+                <a
+                  href={`mailto:${LISTINGS_EMAIL}`}
+                  className="hover:text-primary-foreground transition-colors duration-200"
+                >
+                  {LISTINGS_EMAIL}
+                </a>
+              </p>
             </nav>
           </div>
 
@@ -115,10 +118,7 @@ export const Footer = () => {
         {/* Divider + Bottom bar */}
         <div className="mt-10 pt-6 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-primary-foreground/50">
-            © 2026 Campus Needs. Built for USF students only.
-          </p>
-          <p className="text-xs text-primary-foreground/40">
-            Powered by Exonome
+            © 2026 Campus Needs. Built for USF students.
           </p>
         </div>
       </div>

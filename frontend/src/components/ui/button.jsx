@@ -14,9 +14,9 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 transition-colors duration-200",
         outline:
-          "border-2 border-accent text-accent bg-transparent hover:bg-accent hover:text-accent-foreground transition-colors duration-200",
+          "border-2 border-primary text-primary bg-background hover:bg-primary/5 transition-colors duration-200",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 transition-colors duration-200",
+          "bg-background border-2 border-primary text-primary hover:bg-primary/5 transition-colors duration-200",
         ghost: "hover:bg-muted hover:text-foreground transition-colors duration-200",
         link: "text-primary underline-offset-4 hover:underline transition-colors duration-200",
         gold:
@@ -26,7 +26,7 @@ const buttonVariants = cva(
         "hero-primary":
           "bg-primary-foreground text-primary font-semibold hover:bg-primary-foreground/90 transition-colors duration-200",
         "hero-outline":
-          "border-2 border-accent text-accent bg-transparent hover:bg-accent/10 transition-colors duration-200",
+          "border-2 border-primary text-primary bg-background hover:bg-primary/5 transition-colors duration-200",
       },
       size: {
         default: "h-10 px-5 py-2",

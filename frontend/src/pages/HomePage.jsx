@@ -38,7 +38,7 @@ const HeroSection = () => {
               The marketplace built for USF students
             </h2>
             <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
-              The only marketplace built for USF students. Buy furniture, sell textbooks, borrow gear from Dons you actually go to school with.
+              The only marketplace built for USF students. Buy dorm furniture, sell textbooks, and pass on what you don't need — all with verified @usfca.edu students. No shipping. No strangers. Just your campus community.
             </p>
             <p className="text-sm text-primary-foreground/60">
               17 listings live <span className="text-accent">·</span> USF students only <span className="text-accent">·</span> Free to browse
@@ -104,8 +104,8 @@ const CategoriesSection = () => {
     <section className="py-12 sm:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="What can you find?"
-          subtitle="Live categories on Campus Needs right now."
+          title="What USF students are buying and selling"
+          subtitle="Browse by category or see all listings"
         />
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-5">
           {LIVE_CATEGORIES.map((cat, i) => (
@@ -135,8 +135,8 @@ const FeaturedListings = () => {
     <section className="py-12 sm:py-20 bg-green-tint">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="What's available right now"
-          subtitle="Real listings from USF students, student priced, pickup only."
+          title="Popular on campus right now"
+          subtitle="Real items from real USF students"
         />
         {/* Mobile: 4 cards in 2-col grid */}
         <div className="mt-10 grid grid-cols-2 sm:hidden gap-4">
@@ -197,20 +197,20 @@ const ListItemBanner = () => {
 const FAQSection = () => {
   const faqs = [
     {
-      q: "How does pickup work?",
-      a: "You and the seller agree on a time and spot on campus. No shipping, no strangers from outside USF.",
+      q: "Is Campus Needs only for USF students?",
+      a: "Yes. Campus Needs is built specifically for University of San Francisco students. Everyone signs in with their @usfca.edu email, so you know you're dealing with real classmates.",
     },
     {
-      q: "Is it free to browse and buy?",
-      a: "Yes \u2014 free to browse, free to buy. Sellers pay a small commission only when something sells.",
+      q: "Do I have to pay to browse?",
+      a: "Nope. Browsing Campus Needs is completely free. You can see what other USF students are selling without signing up.",
     },
     {
-      q: "How do I know sellers are real USF students?",
-      a: "Every seller is verified with a USF email. You\u2019re always buying from a Don.",
+      q: "How do payments work?",
+      a: "You coordinate payment directly with the seller — cash, Venmo, Zelle, whatever works. Meet in public campus spots like the library or student center.",
     },
     {
-      q: "How do I list something?",
-      a: "Fill out the form on the List Your Item page with your USF email and we\u2019ll get it live within 24 hours.",
+      q: "What can I buy or sell here?",
+      a: "Furniture, textbooks, electronics, class gear, everyday essentials. If it's useful for USF students and safe to exchange on or near campus, it belongs here.",
     },
   ];
 
