@@ -7,11 +7,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SEOHead } from "@/components/shared/SEOHead";
 import { LIVE_CATEGORIES, LISTINGS_EMAIL } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { Info, CheckCircle } from "lucide-react";
+import { Info, CheckCircle, Upload, X } from "lucide-react";
 
 export default function ListYourItemPage() {
   const [submitted, setSubmitted] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [imagePreviews, setImagePreviews] = useState([]);
+  const [imageFiles, setImageFiles] = useState([]);
+  const [imageError, setImageError] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -28,6 +31,55 @@ export default function ListYourItemPage() {
     if (field === "email") setEmailError("");
   };
 
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    setImageError("");
+
+    // Validate file count
+    if (imageFiles.length + files.length > 3) {
+      setImageError("You can upload a maximum of 3 images.");
+      return;
+    }
+
+    // Validate file types and sizes
+    const validFiles = [];
+    const validPreviews = [];
+
+    for (const file of files) {
+      // Check file type
+      if (!['image/jpeg', 'image/png', 'image/heic'].includes(file.type)) {
+        setImageError("Only JPEG, PNG, and HEIC images are allowed.");
+        continue;
+      }
+
+      // Check file size (5MB max)
+      if (file.size > 5 * 1024 * 1024) {
+        setImageError(`${file.name} is too large. Max size is 5MB.`);
+        continue;
+      }
+
+      validFiles.push(file);
+      
+      // Create preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        validPreviews.push(reader.result);
+        if (validPreviews.length === validFiles.length) {
+          setImagePreviews((prev) => [...prev, ...validPreviews]);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    setImageFiles((prev) => [...prev, ...validFiles]);
+  };
+
+  const removeImage = (index) => {
+    setImageFiles((prev) => prev.filter((_, i) => i !== index));
+    setImagePreviews((prev) => prev.filter((_, i) => i !== index));
+    setImageError("");
+  };
+
   const validateEmail = (email) => {
     return email.toLowerCase().endsWith("@usfca.edu");
   };
@@ -36,6 +88,10 @@ export default function ListYourItemPage() {
     e.preventDefault();
     if (!validateEmail(formData.email)) {
       setEmailError("Please enter a valid @usfca.edu email address.");
+      return;
+    }
+    if (imageFiles.length < 2) {
+      setImageError("Please upload at least 2 photos of your item.");
       return;
     }
     setSubmitted(true);
@@ -185,11 +241,76 @@ export default function ListYourItemPage() {
                   <Textarea
                     id="description"
                     required
-                    placeholder="Be as detailed as possible. Include condition if applicable."
+                    maxLength={500}
+                    placeholder="Be as detailed as possible. Include brand, condition, size, and any flaws. (Max 500 characters)"
                     value={formData.description}
                     onChange={(e) => handleChange("description", e.target.value)}
                     className="min-h-[120px] resize-y"
                   />
+                  <p className="text-xs text-muted-foreground">
+                    {formData.description.length}/500 characters
+                  </p>
+                </div>
+
+                {/* Image Upload */}
+                <div className="space-y-2">
+                  <Label htmlFor="images" className="text-sm font-medium text-foreground">
+                    Item photos <span className="text-destructive">*</span>
+                  </Label>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <label
+                        htmlFor="images"
+                        className="flex-1 flex flex-col items-center justify-center border-2 border-dashed border-border rounded-lg p-6 cursor-pointer hover:border-primary/50 transition-colors duration-200"
+                      >
+                        <Upload className="h-8 w-8 text-muted-foreground mb-2" />
+                        <span className="text-sm font-medium text-foreground">
+                          Click to upload photos
+                        </span>
+                        <span className="text-xs text-muted-foreground mt-1">
+                          JPEG, PNG, HEIC (Max 5MB each)
+                        </span>
+                      </label>
+                      <input
+                        id="images"
+                        type="file"
+                        accept="image/jpeg,image/png,image/heic"
+                        multiple
+                        onChange={handleImageUpload}
+                        className="hidden"
+                      />
+                    </div>
+                    
+                    <p className="text-xs text-muted-foreground">
+                      Upload 2-3 clear photos of your item. Show different angles and any flaws.
+                    </p>
+
+                    {imageError && (
+                      <p className="text-xs text-destructive">{imageError}</p>
+                    )}
+
+                    {/* Image Previews */}
+                    {imagePreviews.length > 0 && (
+                      <div className="grid grid-cols-3 gap-3">
+                        {imagePreviews.map((preview, index) => (
+                          <div key={index} className="relative group">
+                            <img
+                              src={preview}
+                              alt={`Preview ${index + 1}`}
+                              className="w-full h-24 object-cover rounded-lg border border-border"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => removeImage(index)}
+                              className="absolute top-1 right-1 bg-destructive text-destructive-foreground rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Price */}

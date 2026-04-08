@@ -38,7 +38,7 @@ const HeroSection = () => {
               The marketplace built for USF students
             </h2>
             <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
-              The only marketplace built for USF students. Buy dorm furniture, sell textbooks, and pass on what you don't need — all with verified @usfca.edu students. No shipping. No strangers. Just your campus community.
+              Buy and sell with verified USF students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
             </p>
             <p className="text-sm text-primary-foreground/60">
               17 listings live <span className="text-accent">·</span> USF students only <span className="text-accent">·</span> Free to browse
