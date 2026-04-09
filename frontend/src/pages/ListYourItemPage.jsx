@@ -81,19 +81,17 @@ export default function ListYourItemPage() {
               transition={{ duration: 0.4 }}
             >
               {/* Tally Form Embed */}
-              <div style={{ width: '100%', maxWidth: '800px', margin: '40px auto 0' }}>
-                <iframe 
-                  data-tally-src="https://tally.so/embed/eq7rMl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                  loading="lazy" 
-                  width="100%" 
-                  height="1233" 
-                  frameBorder="0" 
-                  marginHeight="0" 
-                  marginWidth="0" 
-                  title="Campus Needs - List Your Item"
-                  style={{ border: 'none' }}
-                ></iframe>
-              </div>
+              <iframe 
+                data-tally-src="https://tally.so/embed/eq7rMl?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                loading="lazy" 
+                width="100%" 
+                height="1233" 
+                frameBorder="0" 
+                marginHeight="0" 
+                marginWidth="0" 
+                title="Campus Needs - List Your Item"
+                style={{ border: 'none' }}
+              ></iframe>
             </motion.div>
           )}
         </div>
