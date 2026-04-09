@@ -12,11 +12,23 @@ export default function ListYourItemPage() {
     script.innerHTML = `var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}`;
     document.body.appendChild(script);
 
+    // Add custom CSS to override Tally button color
+    const style = document.createElement('style');
+    style.innerHTML = `
+      iframe[src*="tally.so"] {
+        /* Tally form button override will be handled by Tally's customization settings */
+      }
+    `;
+    document.head.appendChild(style);
+
     return () => {
       // Cleanup script on unmount
       const tallyScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
       if (tallyScript) {
         tallyScript.remove();
+      }
+      if (style && style.parentNode) {
+        style.parentNode.removeChild(style);
       }
     };
   }, []);

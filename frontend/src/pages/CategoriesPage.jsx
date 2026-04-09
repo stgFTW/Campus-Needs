@@ -37,17 +37,6 @@ export default function CategoriesPage() {
               <CategoryCard key={cat.id} category={cat} index={i} />
             ))}
           </div>
-          <div className="mt-8 text-center space-y-4">
-            <p className="text-sm text-muted-foreground">
-              More categories launching this semester.
-            </p>
-            <Button variant="gold" size="default" className="group" asChild>
-              <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
-                Browse all listings
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
-            </Button>
-          </div>
         </div>
       </section>
 

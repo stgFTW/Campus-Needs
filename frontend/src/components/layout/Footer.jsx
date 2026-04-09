@@ -30,7 +30,7 @@ export const Footer = () => {
               </a>
             </p>
             <p className="text-xs text-primary-foreground/50 leading-relaxed">
-              A USF-only peer-to-peer marketplace. Powered by Exonome.
+              A USF-only peer-to-peer marketplace.
             </p>
           </div>
 

@@ -6,9 +6,9 @@ import { MARKETPLACE_URL } from "@/lib/constants";
 
 const navLinks = [
   { label: "Home", path: "/" },
+  { label: "List Your Item", path: "/list-your-item" },
   { label: "Categories", path: "/categories" },
   { label: "How It Works", path: "/how-it-works" },
-  { label: "List Your Item", path: "/list-your-item" },
   { label: "About", path: "/about" },
 ];
 

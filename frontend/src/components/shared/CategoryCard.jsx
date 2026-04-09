@@ -1,8 +1,6 @@
 import { Home, BookOpen, ShoppingBag, RefreshCw } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const iconMap = {
@@ -38,18 +36,6 @@ export const CategoryCard = ({ category, index = 0 }) => {
               {category.description}
             </CardDescription>
           </CardContent>
-          <CardFooter className="mt-auto">
-            <Button
-              variant="gold"
-              size="sm"
-              className="w-full"
-              asChild
-            >
-              <Link to={`/listings?category=${category.id}`}>
-                Browse Listings
-              </Link>
-            </Button>
-          </CardFooter>
         </Card>
       </motion.div>
     );

@@ -1,7 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { CategoryCard } from "@/components/shared/CategoryCard";
 import { StepCard } from "@/components/shared/StepCard";
-import { CTABanner } from "@/components/shared/CTABanner";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { OnboardingModal } from "@/components/shared/OnboardingModal";
@@ -11,6 +9,7 @@ import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS, HOME_LISTINGS, ST
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
@@ -34,9 +33,6 @@ const HeroSection = () => {
               <br />
               <span className="text-accent">Your exchange.</span>
             </h1>
-            <h2 className="text-lg sm:text-xl font-medium text-primary-foreground/70">
-              The marketplace built for USF students
-            </h2>
             <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
               Buy and sell with verified USF students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
             </p>
@@ -111,17 +107,6 @@ const CategoriesSection = () => {
           {LIVE_CATEGORIES.map((cat, i) => (
             <CategoryCard key={cat.id} category={cat} index={i} />
           ))}
-        </div>
-        <div className="mt-8 text-center space-y-4">
-          <p className="text-sm text-muted-foreground">
-            More categories launching this semester.
-          </p>
-          <Button variant="gold" size="default" className="w-full sm:w-auto group" asChild>
-            <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
-              Browse all listings
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </a>
-          </Button>
         </div>
       </div>
     </section>
@@ -260,12 +245,11 @@ export default function HomePage() {
       <OnboardingModal />
       <HeroSection />
       <TrustBar />
+      <FeaturedListings />
       <HowItWorksSection />
       <CategoriesSection />
-      <FeaturedListings />
       <ListItemBanner />
       <FAQSection />
-      <CTABanner />
     </>
   );
 }
