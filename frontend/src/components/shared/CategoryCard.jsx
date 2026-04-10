@@ -1,7 +1,9 @@
 import { Home, BookOpen, ShoppingBag, RefreshCw } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const iconMap = {
   Home,
@@ -12,6 +14,15 @@ const iconMap = {
 
 export const CategoryCard = ({ category, index = 0 }) => {
   const Icon = iconMap[category.icon];
+
+  // Map category IDs to their respective URLs
+  const getCategoryUrl = (categoryId) => {
+    const urlMap = {
+      'home-and-living': 'https://connect.exono.me/Market/campusneeds?category=home%20and%20living',
+      'study-and-class-essentials': 'https://connect.exono.me/Market/campusneeds?category=study%20and%20class%20essentials'
+    };
+    return urlMap[categoryId] || '#';
+  };
 
   if (category.live) {
     return (
@@ -36,6 +47,23 @@ export const CategoryCard = ({ category, index = 0 }) => {
               {category.description}
             </CardDescription>
           </CardContent>
+          <CardFooter className="mt-auto">
+            <Button
+              variant="gold"
+              size="sm"
+              className="w-full"
+              asChild
+            >
+              <a 
+                href={getCategoryUrl(category.id)} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Browse Listings
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+          </CardFooter>
         </Card>
       </motion.div>
     );

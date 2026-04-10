@@ -4,8 +4,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { OnboardingModal } from "@/components/shared/OnboardingModal";
 import { TrustBar } from "@/components/shared/TrustBar";
-import { ProductCard } from "@/components/shared/ProductCard";
-import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS, HOME_LISTINGS, STUDY_LISTINGS } from "@/lib/constants";
+import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -113,35 +112,76 @@ const CategoriesSection = () => {
   );
 };
 
-const FeaturedListings = () => {
-  const allFeatured = [...HOME_LISTINGS.slice(0, 3), ...STUDY_LISTINGS.slice(0, 3)];
-  const mobileFeatured = [...HOME_LISTINGS.slice(0, 2), ...STUDY_LISTINGS.slice(0, 2)];
+const BrowseByCategorySection = () => {
+  const categories = [
+    {
+      title: "Home and Living",
+      subtitle: "Furniture, lamps, mini fridges and more",
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+      url: "https://connect.exono.me/Market/campusneeds?category=home%20and%20living"
+    },
+    {
+      title: "Study and Class Essentials",
+      subtitle: "Calculators, adapters, study gear and more",
+      image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80",
+      url: "https://connect.exono.me/Market/campusneeds?category=study%20and%20class%20essentials"
+    }
+  ];
+
   return (
     <section className="py-12 sm:py-20 bg-green-tint">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="Popular on campus right now"
-          subtitle="Real items from real USF students"
+          title="Browse by Category"
+          subtitle="Everything USF students need, organized by category."
         />
-        {/* Mobile: 4 cards in 2-col grid */}
-        <div className="mt-10 grid grid-cols-2 sm:hidden gap-4">
-          {mobileFeatured.map((listing, i) => (
-            <ProductCard key={listing.id} listing={listing} index={i} />
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {categories.map((category, i) => (
+            <motion.a
+              key={i}
+              href={category.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="relative min-h-[220px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
+            >
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${category.image})` }}
+              />
+              
+              {/* Dark Green Overlay (55% opacity) */}
+              <div className="absolute inset-0 bg-primary opacity-55" />
+              
+              {/* Content */}
+              <div className="relative h-full flex flex-col justify-between p-8">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    {category.title}
+                  </h3>
+                  <p className="text-base text-white/90">
+                    {category.subtitle}
+                  </p>
+                </div>
+                
+                <Button
+                  variant="gold"
+                  size="default"
+                  className="w-full sm:w-auto group-hover:bg-accent/90 transition-colors duration-200"
+                  asChild
+                >
+                  <span>
+                    Browse Listings
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </Button>
+              </div>
+            </motion.a>
           ))}
-        </div>
-        {/* Desktop: 6 cards in 2/3-col grid */}
-        <div className="mt-10 hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {allFeatured.map((listing, i) => (
-            <ProductCard key={listing.id} listing={listing} index={i} />
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
-            <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
-              Browse the Exchange
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </a>
-          </Button>
         </div>
       </div>
     </section>
@@ -245,7 +285,7 @@ export default function HomePage() {
       <OnboardingModal />
       <HeroSection />
       <TrustBar />
-      <FeaturedListings />
+      <BrowseByCategorySection />
       <HowItWorksSection />
       <CategoriesSection />
       <ListItemBanner />
