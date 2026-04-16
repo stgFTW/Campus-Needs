@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Plus } from "lucide-react";
 import { MARKETPLACE_URL } from "@/lib/constants";
 
 const navLinks = [
@@ -53,7 +53,7 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* CTA + Mobile Toggle */}
+          {/* CTA + Mobile List Item Button + Mobile Toggle */}
           <div className="flex items-center gap-3">
             <Button
               variant="gold"
@@ -65,6 +65,17 @@ export const Header = () => {
                 Browse Exchange
               </a>
             </Button>
+            
+            {/* Mobile "List Item" button - visible only on mobile/tablet */}
+            <Link
+              to="/list-your-item"
+              onClick={closeMobile}
+              className="lg:hidden h-8 px-3 rounded-full bg-accent text-accent-foreground text-xs font-semibold flex items-center gap-1.5 hover:bg-accent/90 transition-colors duration-200"
+            >
+              <Plus className="h-3 w-3" />
+              List Item
+            </Link>
+            
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
               className="lg:hidden p-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200 relative z-[60]"

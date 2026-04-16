@@ -1,12 +1,11 @@
 import { CategoryCard } from "@/components/shared/CategoryCard";
-import { StepCard } from "@/components/shared/StepCard";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { OnboardingModal } from "@/components/shared/OnboardingModal";
 import { TrustBar } from "@/components/shared/TrustBar";
 import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Search, ShieldCheck, MapPin, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +44,7 @@ const HeroSection = () => {
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="hero-outline" size="lg" className="w-full sm:w-auto" asChild>
+              <Button variant="hero-outline" size="lg" className="hidden sm:flex w-full sm:w-auto" asChild>
                 <a href="#how-it-works">
                   How does it work?
                   <ChevronDown className="h-4 w-4" />
@@ -77,17 +76,73 @@ const HeroSection = () => {
 };
 
 const HowItWorksSection = () => {
+  const icons = [Search, ShieldCheck, MapPin];
+  const iconBgs = ['bg-green-50', 'bg-amber-50', 'bg-green-50'];
+  const iconColors = ['text-primary', 'text-amber-600', 'text-primary'];
+
   return (
-    <section id="how-it-works" className="py-12 sm:py-20 bg-green-tint">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="How It Works"
-          subtitle="Three simple steps to get what you need from your campus community."
-        />
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-          {HOW_IT_WORKS_STEPS.map((step, i) => (
-            <StepCard key={step.step} step={step} index={i} />
-          ))}
+    <section id="how-it-works" className="py-12 sm:py-20 bg-white">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Left-aligned heading */}
+        <div className="text-left">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            Three steps.
+          </h2>
+          <p className="text-base text-muted-foreground mt-2">
+            Safe, fast, and built for USF students.
+          </p>
+          <div className="w-12 h-0.5 bg-accent mt-4 mb-10"></div>
+        </div>
+
+        {/* Step cards with connectors */}
+        <div className="space-y-0">
+          {HOW_IT_WORKS_STEPS.map((step, i) => {
+            const Icon = icons[i];
+            return (
+              <div key={i}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="bg-white rounded-xl border-l-[3px] border-l-[#004D32] p-5 shadow-sm border border-border/40"
+                >
+                  <div className="flex gap-4">
+                    {/* Icon block */}
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${iconBgs[i]}`}>
+                      <Icon className={`h-5 w-5 ${iconColors[i]}`} />
+                    </div>
+                    
+                    {/* Text block */}
+                    <div className="flex-1">
+                      <div className="text-[10px] font-bold tracking-widest text-muted-foreground/60 uppercase">
+                        STEP {String(i + 1).padStart(2, '0')}
+                      </div>
+                      <h3 className="text-base font-bold text-foreground mt-0.5">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Connector line between cards */}
+                {i < HOW_IT_WORKS_STEPS.length - 1 && (
+                  <div className="w-px h-6 bg-border/40 mx-6"></div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Trust note */}
+        <div className="text-center mt-8">
+          <p className="text-xs text-muted-foreground">
+            <CheckCircle className="h-3 w-3 text-primary inline mr-1" />
+            Every buyer and seller is a verified USF student. No exceptions.
+          </p>
         </div>
       </div>
     </section>
