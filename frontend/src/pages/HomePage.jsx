@@ -4,10 +4,11 @@ import { SEOHead } from "@/components/shared/SEOHead";
 import { OnboardingModal } from "@/components/shared/OnboardingModal";
 import { TrustBar } from "@/components/shared/TrustBar";
 import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Search, ShieldCheck, MapPin, CheckCircle } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, ChevronDown, Search, ShieldCheck, MapPin, CheckCircle, Shield, Lock, Users, AtSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useRef, useEffect, useState } from "react";
 
 const HeroSection = () => {
   return (
@@ -35,7 +36,7 @@ const HeroSection = () => {
               Buy and sell with verified USF students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
             </p>
             <p className="text-sm text-primary-foreground/60">
-              17 listings live <span className="text-accent">·</span> USF students only <span className="text-accent">·</span> Free to browse
+              Live marketplace <span className="text-accent">·</span> Verified USF students only <span className="text-accent">·</span> Stripe protected
             </p>
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
@@ -149,6 +150,186 @@ const HowItWorksSection = () => {
   );
 };
 
+const WhyCampusNeedsSection = () => {
+  return (
+    <section className="py-12 sm:py-20" style={{ backgroundColor: "#FDF5E6" }}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10" style={{ color: "#2D2D2D" }}>
+          Why Campus Needs exists
+        </h2>
+        
+        <div className="flex flex-col md:flex-row gap-8 items-start">
+          {/* Founder Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="flex-shrink-0 mx-auto md:mx-0"
+          >
+            <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] rounded-full md:rounded-xl border-2 border-accent overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces"
+                alt="Shubh Mehta, Founder"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+          
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="flex-1 text-center md:text-left space-y-4"
+            style={{ color: "#2D2D2D" }}
+          >
+            <p className="text-base leading-relaxed">
+              A USF student sold her desk lamp on Facebook Marketplace. The buyer showed up, took it, and the Venmo payment reversed. She lost 18 dollars and felt unsafe on her own campus.
+            </p>
+            <p className="text-base leading-relaxed">
+              That story is not rare. The Better Business Bureau reports 81 percent of 18 to 24 year olds get scammed online. Meanwhile every May, thousands of dollars of usable furniture and textbooks go straight to campus dumpsters.
+            </p>
+            <p className="text-base leading-relaxed">
+              Campus Needs is the fix. USF verified. Stripe protected. On campus only. Built by a Don, for Dons.
+            </p>
+            <p className="text-base italic mt-6" style={{ color: "#C99700" }}>
+              Shubh Mehta, Founder, USF Class of 2026
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const StatsSection = () => {
+  const stats = [
+    { number: 30, suffix: "+", label: "Active listings" },
+    { number: 100, suffix: "%", label: "USF verified" },
+    { number: 0, suffix: "Stripe", label: "Protected payments" },
+    { number: 2026, suffix: "", label: "Launched" },
+  ];
+
+  const CountUpNumber = ({ end, suffix, duration = 1.5 }) => {
+    const [count, setCount] = useState(0);
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    useEffect(() => {
+      if (isInView && typeof end === 'number') {
+        let start = 0;
+        const increment = end / (duration * 60);
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= end) {
+            setCount(end);
+            clearInterval(timer);
+          } else {
+            setCount(Math.floor(start));
+          }
+        }, 1000 / 60);
+        return () => clearInterval(timer);
+      }
+    }, [isInView, end, duration]);
+
+    return (
+      <span ref={ref}>
+        {suffix === "Stripe" ? suffix : count + suffix}
+      </span>
+    );
+  };
+
+  return (
+    <section className="py-10 sm:py-16" style={{ backgroundColor: "#004D32" }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-xs font-bold tracking-widest text-accent mb-8 uppercase">
+          The Numbers
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="text-center"
+            >
+              <div className="text-4xl sm:text-5xl font-bold text-accent mb-2">
+                <CountUpNumber end={stat.number} suffix={stat.suffix} />
+              </div>
+              <div className="text-sm text-white">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const WhyThisWorksSection = () => {
+  const features = [
+    {
+      icon: AtSign,
+      header: "Real Dons only",
+      body: "Facebook Marketplace has 3 billion people. Campus Needs has 5,300 USF students, every one verified by their usfca email."
+    },
+    {
+      icon: Lock,
+      header: "Payments in flow",
+      body: "Competitors at 240 colleges never integrated payments. Every Campus Needs transaction runs through Stripe, so scams are structurally impossible."
+    },
+    {
+      icon: MapPin,
+      header: "Campus pickup only",
+      body: "No shipping. No parking lots. You meet someone you already walk past in Gleeson or Lo Schiavo, not a stranger from the internet."
+    }
+  ];
+
+  return (
+    <section className="py-10 sm:py-20 bg-background">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+            Why this one works
+          </h2>
+          <p className="text-base" style={{ color: "#FDF5E6" }}>
+            Campus marketplaces have been tried. We studied every one that failed. Here is what makes Campus Needs different.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {features.map((feature, i) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="border border-accent/30 rounded-lg p-6 bg-background"
+              >
+                <Icon className="h-6 w-6 text-accent mb-4" />
+                <h3 className="text-base font-bold text-foreground mb-2">
+                  {feature.header}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {feature.body}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CategoriesSection = () => {
   return (
     <section className="py-12 sm:py-20 bg-background">
@@ -167,18 +348,52 @@ const CategoriesSection = () => {
   );
 };
 
+const TrustBadges = () => {
+  const badges = [
+    { icon: Shield, label: "Verified USF" },
+    { icon: Lock, label: "Stripe Protected" },
+    { icon: MapPin, label: "On Campus Only" },
+    { icon: Users, label: "No Strangers" },
+  ];
+
+  return (
+    <section className="py-8 bg-background">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {badges.map((badge, i) => {
+            const Icon = badge.icon;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.1 }}
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-full border border-accent/30 bg-background"
+              >
+                <Icon className="h-4 w-4 text-accent" />
+                <span className="text-xs font-medium text-foreground/80">{badge.label}</span>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const BrowseByCategorySection = () => {
   const categories = [
     {
       title: "Home and Living",
       subtitle: "Furniture, lamps, mini fridges and more",
-      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&q=80",
       url: "https://connect.exono.me/Market/campusneeds?category=home%20and%20living"
     },
     {
       title: "Study and Class Essentials",
       subtitle: "Calculators, adapters, study gear and more",
-      image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
       url: "https://connect.exono.me/Market/campusneeds?category=study%20and%20class%20essentials"
     }
   ];
@@ -286,7 +501,7 @@ const FAQSection = () => {
     },
     {
       q: "How do payments work?",
-      a: "You coordinate payment directly with the seller — cash, Venmo, Zelle, whatever works. Meet in public campus spots like the library or student center.",
+      a: "Payments run through Stripe on our marketplace at connect.exono.me. Your card data never touches our servers. Stripe is PCI DSS Level 1 certified, the highest payment security standard. We do not accept Venmo, cash, or Zelle, so scams, reversed payments, and fake payment screenshots are not possible on Campus Needs.",
     },
     {
       q: "What can I buy or sell here?",
@@ -340,11 +555,15 @@ export default function HomePage() {
       <OnboardingModal />
       <HeroSection />
       <TrustBar />
+      <TrustBadges />
       <BrowseByCategorySection />
       <HowItWorksSection />
+      <WhyCampusNeedsSection />
       <CategoriesSection />
+      <WhyThisWorksSection />
       <ListItemBanner />
       <FAQSection />
+      <StatsSection />
     </>
   );
 }
