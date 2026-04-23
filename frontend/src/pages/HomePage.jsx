@@ -158,47 +158,28 @@ const WhyCampusNeedsSection = () => {
           Why Campus Needs exists
         </h2>
         
-        <div className="flex flex-col md:flex-row gap-8 items-start">
-          {/* Founder Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="flex-shrink-0 mx-auto md:mx-0"
-          >
-            <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] rounded-full md:rounded-xl border-2 border-accent overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces"
-                alt="Shubh Mehta, Founder"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
-          
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex-1 text-center md:text-left space-y-4"
-            style={{ color: "#2D2D2D" }}
-          >
-            <p className="text-base leading-relaxed">
-              A USF student sold her desk lamp on Facebook Marketplace. The buyer showed up, took it, and the Venmo payment reversed. She lost 18 dollars and felt unsafe on her own campus.
-            </p>
-            <p className="text-base leading-relaxed">
-              That story is not rare. The Better Business Bureau reports 81 percent of 18 to 24 year olds get scammed online. Meanwhile every May, thousands of dollars of usable furniture and textbooks go straight to campus dumpsters.
-            </p>
-            <p className="text-base leading-relaxed">
-              Campus Needs is the fix. USF verified. Stripe protected. On campus only. Built by a Don, for Dons.
-            </p>
-            <p className="text-base italic mt-6" style={{ color: "#C99700" }}>
-              Shubh Mehta, Founder, USF Class of 2026
-            </p>
-          </motion.div>
-        </div>
+        {/* Centered Text Content - No Photo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="max-w-2xl mx-auto text-center space-y-4"
+          style={{ color: "#2D2D2D" }}
+        >
+          <p className="text-base leading-relaxed">
+            A USF student sold her desk lamp on Facebook Marketplace. The buyer showed up, took it, and the Venmo payment reversed. She lost 18 dollars and felt unsafe on her own campus.
+          </p>
+          <p className="text-base leading-relaxed">
+            That story is not rare. Recent research shows 1 in 3 secondhand marketplace buyers got scammed in the last two years. The FTC logged 12.5 billion dollars in fraud in 2024, with ages 20 to 29 hit hardest. Meanwhile every May, thousands of dollars of usable furniture and textbooks go straight to campus dumpsters.
+          </p>
+          <p className="text-base leading-relaxed">
+            Campus Needs is the fix. USF verified. Stripe protected. On campus only. Built by a Don, for Dons.
+          </p>
+          <p className="text-base italic mt-6" style={{ color: "#C99700" }}>
+            Shubh Mehta, Founder, USF Class of 2026
+          </p>
+        </motion.div>
       </div>
     </section>
   );
@@ -276,7 +257,7 @@ const WhyThisWorksSection = () => {
     {
       icon: AtSign,
       header: "Real Dons only",
-      body: "Facebook Marketplace has 3 billion people. Campus Needs has 5,300 USF students, every one verified by their usfca email."
+      body: "Facebook Marketplace has 3 billion people. Campus Needs is built for the 5,300 USF students on this hilltop. Every single one verified as a current USF student."
     },
     {
       icon: Lock,
@@ -501,7 +482,7 @@ const FAQSection = () => {
     },
     {
       q: "How do payments work?",
-      a: "Payments run through Stripe on our marketplace at connect.exono.me. Your card data never touches our servers. Stripe is PCI DSS Level 1 certified, the highest payment security standard. We do not accept Venmo, cash, or Zelle, so scams, reversed payments, and fake payment screenshots are not possible on Campus Needs.",
+      a: "Payments run through Stripe. Your card data never touches our servers. Stripe is PCI DSS Level 1 certified, the highest payment security standard. We do not accept Venmo, cash, or Zelle, so scams, reversed payments, and fake payment screenshots are not possible on Campus Needs.",
     },
     {
       q: "What can I buy or sell here?",

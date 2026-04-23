@@ -22,19 +22,19 @@ export const CATEGORIES = [
     live: true,
   },
   {
-    id: "campus-errands",
-    name: "Campus Errands",
+    id: "campus-closet",
+    name: "Campus Closet",
     icon: "ShoppingBag",
     description:
-      "Need a grocery run or pharmacy pickup? A fellow student has you covered.",
+      "Clothing, shoes, accessories, and game day fits. From your roommate's closet, not a stranger's.",
     live: false,
   },
   {
-    id: "short-term-borrowing",
-    name: "Short Term Borrowing",
+    id: "tickets-and-events",
+    name: "Tickets and Events",
     icon: "RefreshCw",
     description:
-      "Borrow luggage, tools, or a steamer for a week. No need to buy what you only need once.",
+      "Formals, basketball games, concerts, and campus events. Get in the door for less.",
     live: false,
   },
 ];

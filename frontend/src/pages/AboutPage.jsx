@@ -164,11 +164,10 @@ export default function AboutPage() {
             className="mt-8 space-y-6 text-center"
           >
             <p className="text-base text-muted-foreground leading-relaxed">
-              USF sits on a hilltop in San Francisco — one of the most expensive
-              cities in the world. Students can't have cars. There's no retail
+              USF sits on a hilltop in San Francisco, one of the most expensive
+              cities in the world. Students cannot have cars. There is no retail
               strip at the campus entrance. Instacart charges fees that add up
-              fast. Craigslist is full of strangers. Facebook groups are messy
-              and unverified. Campus Needs fixes all of that in one place.
+              fast. Facebook Marketplace is full of strangers. Other campus marketplaces never integrated payments. Campus Needs fixes all of that in one place.
             </p>
             <Button variant="default" size="lg" className="group" asChild>
               <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
