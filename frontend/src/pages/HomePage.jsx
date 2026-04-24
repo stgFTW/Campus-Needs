@@ -20,57 +20,39 @@ const HeroSection = () => {
       }} />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
-              Your campus.
-              <br />
-              <span className="text-accent">Your exchange.</span>
-            </h1>
-            <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed max-w-lg">
-              Buy and sell with verified USF students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
-            </p>
-            <p className="text-sm text-primary-foreground/60">
-              Live marketplace <span className="text-accent">·</span> Verified USF students only <span className="text-accent">·</span> Stripe protected
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
-                <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
-                  Browse the Exchange
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </a>
-              </Button>
-              <Button variant="hero-outline" size="lg" className="hidden sm:flex w-full sm:w-auto" asChild>
-                <a href="#how-it-works">
-                  How does it work?
-                  <ChevronDown className="h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-          </motion.div>
-
-          {/* Hero Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="hidden lg:block"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.pexels.com/photos/6147143/pexels-photo-6147143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt="USF students interacting on campus"
-                className="w-full h-[400px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
-            </div>
-          </motion.div>
-        </div>
+        {/* Centered Text Content - No Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center space-y-6"
+        >
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight">
+            Your campus.
+            <br />
+            <span className="text-accent">Your exchange.</span>
+          </h1>
+          <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed">
+            Buy and sell with verified USF students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
+          </p>
+          <p className="text-sm text-primary-foreground/60">
+            Live marketplace <span className="text-accent">·</span> Verified USF students only <span className="text-accent">·</span> Stripe protected
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center">
+            <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
+              <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
+                Browse the Exchange
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              </a>
+            </Button>
+            <Button variant="hero-outline" size="lg" className="hidden sm:flex w-full sm:w-auto" asChild>
+              <a href="#how-it-works">
+                How does it work?
+                <ChevronDown className="h-4 w-4" />
+              </a>
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
