@@ -17,8 +17,10 @@
         <meta name="description" content="The USF-only student marketplace. Buy dorm furniture, sell textbooks, borrow gear from verified USFCA students. Free to browse." />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Campus Needs" />
-        <meta property="og:title" content="Campus Needs ‚Äì Buy & Sell at USF | Student Marketplace" />
+        <meta property="og:title" content="Campus Needs - Buy & Sell at USF | Student Marketplace" />
         <meta property="og:description" content="The USF-only student marketplace. Buy dorm furniture, sell textbooks, borrow gear from verified USFCA students. Free to browse." />
+        <meta property="og:url" content="https://campusneeds.me" />
+        <link rel="canonical" href="https://campusneeds.me" />
         <link rel="icon" type="image/png" href="%PUBLIC_URL%/campus-needs-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +38,7 @@
         work correctly both with client-side routing and a non-root public URL.
         Learn how to configure a non-root public URL by running `npm run build`.
         -->
-        <title>Campus Needs ‚Äì Buy & Sell at USF | Student Marketplace</title>
+        <title>Campus Needs - Buy & Sell at USF | Student Marketplace</title>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
         <!-- PostHog Analytics -->
@@ -50,6 +52,33 @@
         </script>
         <!-- ContentSquare Session Analytics -->
         <script src="https://t.contentsquare.net/uxa/d6f43a8076de1.js"></script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Campus Needs",
+          "url": "https://campusneeds.me",
+          "logo": "https://campusneeds.me/campus-needs-logo.png",
+          "description": "The USF-only student marketplace for verified USFCA students.",
+          "foundingDate": "2025",
+          "founder": {"@type": "Person","name": "Shubh Mehta"},
+          "areaServed": {"@type": "EducationalOrganization","name": "University of San Francisco"}
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {"@type":"Question","name":"What is Campus Needs?","acceptedAnswer":{"@type":"Answer","text":"Campus Needs is a free student marketplace exclusively for University of San Francisco (USF) students to buy, sell, and borrow items on campus."}},
+            {"@type":"Question","name":"How do I sell something on Campus Needs?","acceptedAnswer":{"@type":"Answer","text":"Create a free account with your USF email, click Post Listing, add photos and a price, and your item goes live instantly."}},
+            {"@type":"Question","name":"Is Campus Needs free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. Campus Needs is completely free for all USF students."}},
+            {"@type":"Question","name":"What can I buy on Campus Needs?","acceptedAnswer":{"@type":"Answer","text":"Textbooks, dorm furniture, electronics, clothes, and campus services like tutoring."}},
+            {"@type":"Question","name":"Is Campus Needs only for USF students?","acceptedAnswer":{"@type":"Answer","text":"Yes. Campus Needs is exclusively for verified University of San Francisco students."}},
+            {"@type":"Question","name":"How do I contact a seller?","acceptedAnswer":{"@type":"Answer","text":"Click on any listing to message the seller directly through the app."}}
+          ]
+        }
+        </script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
