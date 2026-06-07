@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Categories", path: "/categories" },
   { label: "How It Works", path: "/how-it-works" },
   { label: "About", path: "/about" },
+  { label: "FAQ", path: "/faq" },
 ];
 
 export const Header = () => {
