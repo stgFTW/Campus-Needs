@@ -80,52 +80,18 @@ agenthub/agents/youtube/db
 android-sdk/ frontend/node_modules/.cache/default-development/0.pack
 -e 
 # Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment and credential files
-.env
-.env.*
-*.env
-credentials.json
+# Credentials and keys (KEEP THESE IGNORED)
 *.pem
 *.key
-.credentials
--e 
-# Environment and credential files
-.env
-.env.*
-*.env
+*.p12
+*.pfx
 credentials.json
-*.pem
-*.key
-.credentials
--e 
-# Environment and credential files
-.env
-.env.*
-*.env
-credentials.json
-*.pem
-*.key
-.credentials
+service-account*.json
+firebase-adminsdk*.json
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
