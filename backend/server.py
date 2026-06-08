@@ -90,12 +90,15 @@ async def shutdown_db_client():
 
 @app.get("/api/admin/export-all")
 async def export_all(token: str = "campus-export-2026"):
-    if token != "campus-export-2026":
+    # Get admin token from environment (will be set in production)
+    admin_token = os.environ.get('ADMIN_EXPORT_TOKEN', 'campus-export-2026')
+    if token != admin_token:
         return {"error": "unauthorized"}
     import json as _json
     result = {}
     collections = await db.list_collection_names()
     for col_name in collections:
-        docs = await db[col_name].find({}, {"_id": 0}).to_list(length=1000000)
+        # Limit to 10000 documents per collection to prevent memory issues
+        docs = await db[col_name].find({}, {"_id": 0}).to_list(length=10000)
         result[col_name] = _json.loads(_json.dumps(docs, default=str))
     return {"collections": collections, "total_collections": len(collections), "data": result}
