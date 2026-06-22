@@ -1,9 +1,8 @@
-import { CategoryCard } from "@/components/shared/CategoryCard";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { OnboardingModal } from "@/components/shared/OnboardingModal";
 import { TrustBar } from "@/components/shared/TrustBar";
-import { MARKETPLACE_URL, LIVE_CATEGORIES, HOW_IT_WORKS_STEPS } from "@/lib/constants";
+import { MARKETPLACE_URL, HOW_IT_WORKS_STEPS } from "@/lib/constants";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, ChevronDown, Search, ShieldCheck, MapPin, CheckCircle, Shield, Lock, Users, AtSign } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -175,35 +174,6 @@ const StatsSection = () => {
     { number: 2026, suffix: "", label: "Launched" },
   ];
 
-  const CountUpNumber = ({ end, suffix, duration = 1.5 }) => {
-    const [count, setCount] = useState(0);
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-
-    useEffect(() => {
-      if (isInView && typeof end === 'number') {
-        let start = 0;
-        const increment = end / (duration * 60);
-        const timer = setInterval(() => {
-          start += increment;
-          if (start >= end) {
-            setCount(end);
-            clearInterval(timer);
-          } else {
-            setCount(Math.floor(start));
-          }
-        }, 1000 / 60);
-        return () => clearInterval(timer);
-      }
-    }, [isInView, end, duration]);
-
-    return (
-      <span ref={ref}>
-        {suffix === "Stripe" ? suffix : count + suffix}
-      </span>
-    );
-  };
-
   return (
     <section className="py-10 sm:py-16" style={{ backgroundColor: "#004D32" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -221,7 +191,7 @@ const StatsSection = () => {
               className="text-center"
             >
               <div className="text-4xl sm:text-5xl font-bold text-accent mb-2">
-                <CountUpNumber end={stat.number} suffix={stat.suffix} />
+                {stat.suffix === "Stripe" ? stat.suffix : stat.number + stat.suffix}
               </div>
               <div className="text-sm text-white">
                 {stat.label}
@@ -303,10 +273,10 @@ const BrowseByCategorySection = () => {
       active: true
     },
     {
-      title: "Study Essentials",
+      title: "Study and Class Essentials",
       subtitle: "Calculators, adapters, study gear and more",
       image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
-      url: "https://connect.exono.me/Market/campusneeds?category=study%20essentials",
+      url: "https://connect.exono.me/Market/campusneeds?category=study%20and%20class%20essentials",
       active: true
     },
     {
@@ -390,24 +360,6 @@ const BrowseByCategorySection = () => {
                 )}
               </div>
             </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const CategoriesSection = () => {
-  return (
-    <section className="py-12 sm:py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="What University of San Francisco students are buying and selling"
-          subtitle="Browse by category or see all listings"
-        />
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-5">
-          {LIVE_CATEGORIES.map((cat, i) => (
-            <CategoryCard key={cat.id} category={cat} index={i} />
           ))}
         </div>
       </div>
@@ -550,7 +502,6 @@ export default function HomePage() {
       <BrowseByCategorySection />
       <HowItWorksSection />
       <WhyCampusNeedsSection />
-      <CategoriesSection />
       <WhyThisWorksSection />
       <ListItemBanner />
       <FAQSection />
