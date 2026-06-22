@@ -19,7 +19,7 @@ export const CategoryCard = ({ category, index = 0 }) => {
   const getCategoryUrl = (categoryId) => {
     const urlMap = {
       'home-and-living': 'https://connect.exono.me/Market/campusneeds?category=home%20and%20living',
-      'study-and-class-essentials': 'https://connect.exono.me/Market/campusneeds?category=study%20and%20class%20essentials'
+      'study-essentials': 'https://connect.exono.me/Market/campusneeds?category=study%20essentials'
     };
     return urlMap[categoryId] || '#';
   };

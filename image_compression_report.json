@@ -1,0 +1,20 @@
+{
+  "before": {
+    "campus-needs-logo.png": "69.32 KB",
+    "favicon-32x32.png": "69.32 KB",
+    "favicon-192x192.png": "69.32 KB",
+    "og-image.png": "69.32 KB"
+  },
+  "after": {
+    "campus-needs-logo.png": "59.38 KB",
+    "favicon-32x32.png": "59.38 KB",
+    "favicon-192x192.png": "59.38 KB",
+    "og-image.png": "59.38 KB"
+  },
+  "savings": {
+    "campus-needs-logo.png": "14.3%",
+    "favicon-32x32.png": "14.3%",
+    "favicon-192x192.png": "14.3%",
+    "og-image.png": "14.3%"
+  }
+}

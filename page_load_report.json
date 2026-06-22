@@ -1,0 +1,36 @@
+{
+  "runs": [
+    {
+      "run": 1,
+      "status": 200,
+      "total_time_ms": 4.2,
+      "content_length_kb": 11.72
+    },
+    {
+      "run": 2,
+      "status": 200,
+      "total_time_ms": 2.56,
+      "content_length_kb": 11.72
+    },
+    {
+      "run": 3,
+      "status": 200,
+      "total_time_ms": 2.51,
+      "content_length_kb": 11.72
+    },
+    {
+      "run": 4,
+      "status": 200,
+      "total_time_ms": 2.74,
+      "content_length_kb": 11.72
+    },
+    {
+      "run": 5,
+      "status": 200,
+      "total_time_ms": 2.47,
+      "content_length_kb": 11.72
+    }
+  ],
+  "average_load_time_ms": 2.9,
+  "average_content_size_kb": 11.72
+}

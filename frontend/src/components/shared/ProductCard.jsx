@@ -19,14 +19,24 @@ export const ProductCard = ({ listing, index = 0 }) => {
     >
       <Card className="h-full flex flex-col overflow-hidden border border-border/50 hover:shadow-lg transition-shadow duration-300 group">
         <div className="relative overflow-hidden aspect-[4/3] bg-muted">
-          <img
-            src={listing.image}
-            alt={listing.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            onError={(e) => {
-              e.target.src = "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop";
-            }}
-          />
+          {listing.image ? (
+            <img
+              src={listing.image}
+              alt={listing.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onError={(e) => {
+                e.target.src = "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop";
+              }}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/5">
+              <div className="text-center px-4">
+                <p className="text-sm font-semibold text-primary/80 leading-snug">
+                  {listing.title}
+                </p>
+              </div>
+            </div>
+          )}
           <div className="absolute top-3 left-3">
             <span className={`text-xs font-medium px-2 py-1 rounded-full ${conditionColor[listing.condition] || "bg-gray-100 text-gray-800"}`}>
               {listing.condition}

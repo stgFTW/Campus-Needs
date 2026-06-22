@@ -354,10 +354,10 @@ const BrowseByCategorySection = () => {
       url: "https://connect.exono.me/Market/campusneeds?category=home%20and%20living"
     },
     {
-      title: "Study and Class Essentials",
+      title: "Study Essentials",
       subtitle: "Calculators, adapters, study gear and more",
       image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
-      url: "https://connect.exono.me/Market/campusneeds?category=study%20and%20class%20essentials"
+      url: "https://connect.exono.me/Market/campusneeds?category=study%20essentials"
     }
   ];
 

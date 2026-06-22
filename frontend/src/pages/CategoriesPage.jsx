@@ -11,7 +11,7 @@ export default function CategoriesPage() {
     <>
       <SEOHead
         title="Browse Categories — Campus Needs"
-        description="Explore Home and Living, Study and Class Essentials, and more on Campus Needs — the verified USF student marketplace."
+        description="Explore Home and Living, Study Essentials, and more on Campus Needs — the verified USF student marketplace."
       />
       {/* Page Header */}
       <section className="bg-hero-gradient">

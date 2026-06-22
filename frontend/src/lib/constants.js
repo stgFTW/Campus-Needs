@@ -14,8 +14,8 @@ export const CATEGORIES = [
     live: true,
   },
   {
-    id: "study-and-class-essentials",
-    name: "Study and Class Essentials",
+    id: "study-essentials",
+    name: "Study Essentials",
     icon: "BookOpen",
     description:
       "Graphing calculators, HDMI adapters, USB drives, lab supplies, and gear your professors actually require.",
@@ -26,15 +26,7 @@ export const CATEGORIES = [
     name: "Campus Closet",
     icon: "ShoppingBag",
     description:
-      "Clothing, shoes, accessories, and game day fits. From your roommate's closet, not a stranger's.",
-    live: false,
-  },
-  {
-    id: "tickets-and-events",
-    name: "Tickets and Events",
-    icon: "RefreshCw",
-    description:
-      "Formals, basketball games, concerts, and campus events. Get in the door for less.",
+      "Secondhand clothing and style finds from fellow USF students. Coming soon.",
     live: false,
   },
 ];
@@ -49,7 +41,7 @@ export const LISTINGS = [
     price: 45,
     condition: "Good",
     category: "home-and-living",
-    image: "https://images.trickly.io/df4b7ef5-9cc8-47f6-b60b-5dcee6bb8d04.webp",
+    image: null,
     description: "Compact mini fridge perfect for dorm rooms. Keeps drinks cold and snacks fresh. Moving out so need it gone. Pickup near USF.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
   },
@@ -59,7 +51,7 @@ export const LISTINGS = [
     price: 35,
     condition: "Good",
     category: "home-and-living",
-    image: "https://images.trickly.io/2b5c8f9e-4a1d-4c3b-b8e9-7d6f5a4c2b1a.webp",
+    image: null,
     description: "Ergonomic desk chair with adjustable height. Great for long study sessions. Comfortable and supportive. Pickup near USF campus.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
   },
@@ -69,7 +61,7 @@ export const LISTINGS = [
     price: 40,
     condition: "Good",
     category: "home-and-living",
-    image: "https://images.trickly.io/c5d7e9f1-2a3b-4c5d-6e7f-8a9b1c2d3e4f.webp",
+    image: null,
     description: "5 tier shelving unit. Perfect for books, plants, or storage. Sturdy and in good condition. Pickup near USF campus.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
   },
@@ -108,8 +100,8 @@ export const LISTINGS = [
     title: "Desk Lamp - Adjustable LED",
     price: 15,
     condition: "Good",
-    category: "study-and-class-essentials",
-    image: "https://images.trickly.io/f08e0a6d-d88c-4c95-aa87-cb7fe4f5c1c1.webp",
+    category: "study-essentials",
+    image: null,
     description: "Adjustable LED desk lamp. Perfect for late night study sessions. Bright and energy efficient. Pickup near USF campus.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
   },
@@ -118,8 +110,8 @@ export const LISTINGS = [
     title: "TI-84 Plus Calculator",
     price: 80,
     condition: "Like New",
-    category: "study-and-class-essentials",
-    image: "https://images.trickly.io/45b2c1d7-8fa9-4e6c-b5a3-9e7d8c3f1a2b.webp",
+    category: "study-essentials",
+    image: null,
     description: "TI-84 Plus graphing calculator. Works perfectly, barely used. Essential for math classes at USF. Pickup near campus.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
   },
@@ -128,8 +120,8 @@ export const LISTINGS = [
     title: "Laptop Stand - Aluminum",
     price: 20,
     condition: "Like New",
-    category: "study-and-class-essentials",
-    image: "https://images.trickly.io/8d3c5b7e-9f2a-4d1c-a5b6-3e9f7c8d4a1b.webp",
+    category: "study-essentials",
+    image: null,
     description: "Aluminum laptop stand. Adjustable height, improves posture during long study sessions. Pickup near USF campus.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
   },
@@ -138,7 +130,7 @@ export const LISTINGS = [
     title: "Wireless Mouse, Compact, Silver",
     price: 9,
     condition: "Good",
-    category: "study-and-class-essentials",
+    category: "study-essentials",
     image: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=300&fit=crop",
     description: "Compact wireless mouse. Battery included. Way better than trackpad for long study sessions. Pickup near USF.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
@@ -148,7 +140,7 @@ export const LISTINGS = [
     title: "Laptop Stand, Foldable Aluminum, Silver",
     price: 15,
     condition: "Like New",
-    category: "study-and-class-essentials",
+    category: "study-essentials",
     image: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=300&fit=crop",
     description: "Foldable aluminum laptop stand. Adjustable height. Moving out of LME and this does not fit in my bag. Pickup near campus.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
@@ -158,7 +150,7 @@ export const LISTINGS = [
     title: "Blue Light Glasses, Clear Frame",
     price: 7,
     condition: "Like New",
-    category: "study-and-class-essentials",
+    category: "study-essentials",
     image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&h=300&fit=crop",
     description: "Blue light blocking glasses, clear frames. No prescription. Made a difference during late night study sessions. Pickup near USF.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
@@ -168,7 +160,7 @@ export const LISTINGS = [
     title: "Sticky Notes and Highlighter Set",
     price: 0,
     condition: "Good",
-    category: "study-and-class-essentials",
+    category: "study-essentials",
     image: "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&h=300&fit=crop",
     description: "Moving out of my freshman dorm in Gilson and just want this gone. Sticky notes, highlighters, random desk stuff. Free, just come grab it.",
     marketplaceUrl: "https://connect.exono.me/Market/CampusNeeds"
@@ -176,7 +168,7 @@ export const LISTINGS = [
 ];
 
 export const HOME_LISTINGS = LISTINGS.filter(l => l.category === "home-and-living");
-export const STUDY_LISTINGS = LISTINGS.filter(l => l.category === "study-and-class-essentials");
+export const STUDY_LISTINGS = LISTINGS.filter(l => l.category === "study-essentials");
 
 export const HOW_IT_WORKS_STEPS = [
   {
@@ -185,7 +177,7 @@ export const HOW_IT_WORKS_STEPS = [
     description:
       "Explore listings from verified USF students across our live categories.",
     detail:
-      "Browse through Home and Living essentials, Study and Class gear, and more as we expand. Every listing is posted by a verified USF student, so you know exactly who you're dealing with.",
+      "Browse through Home and Living essentials, Study gear, and more as we expand. Every listing is posted by a verified USF student, so you know exactly who you're dealing with.",
   },
   {
     step: 2,
