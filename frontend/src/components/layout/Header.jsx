@@ -29,7 +29,7 @@ export const Header = () => {
             <img
               src="/campus-needs-logo.png"
               alt="Campus Needs logo"
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-10 w-10 rounded-full object-cover border-0 outline-0 ring-0"
             />
             <span className="text-lg font-bold text-primary-foreground tracking-tight">
               Campus Needs

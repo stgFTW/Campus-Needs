@@ -10,8 +10,8 @@ export default function CategoriesPage() {
   return (
     <>
       <SEOHead
-        title="Browse Categories, Campus Needs"
-        description="Explore Home and Living, Study Essentials, and more on Campus Needs, the verified USF student marketplace."
+        title="Browse Categories, Campus Needs University of San Francisco (USFCA)"
+        description="Explore Home and Living, Study Essentials, and more on Campus Needs, the verified University of San Francisco (USFCA) student marketplace."
       />
       {/* Page Header */}
       <section className="bg-hero-gradient">

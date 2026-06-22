@@ -35,7 +35,7 @@ export default function AboutPage() {
   return (
     <>
       <SEOHead
-        title="About Campus Needs, USF Student Marketplace"
+        title="About Campus Needs, University of San Francisco (USFCA) Student Marketplace"
         description="Campus Needs is a student-run peer-to-peer marketplace built exclusively for University of San Francisco students."
       />
       {/* Page Header */}
