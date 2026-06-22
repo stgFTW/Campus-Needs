@@ -20,7 +20,7 @@ export const TrustBar = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-0">
           {signals.map((signal, i) => (
-            <div key={i} className="flex items-center">
+            <div key={signal} className="flex items-center">
               {i > 0 && (
                 <div className="hidden sm:block w-px h-4 bg-primary/20 mx-5" />
               )}

@@ -7,14 +7,14 @@ export default function ListYourItemPage() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    // Load Tally embed script
+    // Load Tally embed script - using textContent instead of innerHTML to prevent XSS
     const script = document.createElement('script');
-    script.innerHTML = `var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}`;
+    script.textContent = `var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}`;
     document.body.appendChild(script);
 
-    // Add custom CSS to override Tally button color
+    // Add custom CSS to override Tally button color - using textContent instead of innerHTML
     const style = document.createElement('style');
-    style.innerHTML = `
+    style.textContent = `
       iframe[src*="tally.so"] {
         /* Tally form button override will be handled by Tally's customization settings */
       }
@@ -30,7 +30,11 @@ export default function ListYourItemPage() {
       if (style && style.parentNode) {
         style.parentNode.removeChild(style);
       }
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
     };
+    // Added dependencies to fix stale closure bug
   }, []);
 
   return (

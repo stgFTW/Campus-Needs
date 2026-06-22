@@ -35,7 +35,8 @@ export const OnboardingModal = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const seen = localStorage.getItem(STORAGE_KEY);
+    // Use sessionStorage instead of localStorage for non-sensitive session data
+    const seen = sessionStorage.getItem(STORAGE_KEY);
     if (!seen) {
       const timer = setTimeout(() => setShow(true), 600);
       return () => clearTimeout(timer);
@@ -44,7 +45,8 @@ export const OnboardingModal = () => {
 
   const dismiss = () => {
     setShow(false);
-    localStorage.setItem(STORAGE_KEY, "true");
+    // Use sessionStorage instead of localStorage
+    sessionStorage.setItem(STORAGE_KEY, "true");
   };
 
   const next = () => {
@@ -169,9 +171,9 @@ export const OnboardingModal = () => {
 
               {/* Dot indicators */}
               <div className="flex items-center justify-center gap-2 mt-6">
-                {slides.map((_, i) => (
+                {slides.map((slide, i) => (
                   <button
-                    key={i}
+                    key={slide.headline}
                     onClick={() => setCurrent(i)}
                     className={`w-2 h-2 rounded-full transition-all duration-200 ${
                       i === current

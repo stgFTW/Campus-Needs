@@ -82,7 +82,7 @@ const HowItWorksSection = () => {
           {HOW_IT_WORKS_STEPS.map((step, i) => {
             const Icon = icons[i];
             return (
-              <div key={i}>
+              <div key={step.step}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -213,7 +213,7 @@ const StatsSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <motion.div
-              key={i}
+              key={`${stat.label}-${stat.number}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -270,7 +270,7 @@ const WhyThisWorksSection = () => {
             const Icon = feature.icon;
             return (
               <motion.div
-                key={i}
+                key={feature.header}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -327,7 +327,7 @@ const TrustBadges = () => {
             const Icon = badge.icon;
             return (
               <motion.div
-                key={i}
+                key={badge.label}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -371,7 +371,7 @@ const BrowseByCategorySection = () => {
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           {categories.map((category, i) => (
             <motion.a
-              key={i}
+              key={category.title}
               href={category.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -487,7 +487,7 @@ const FAQSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {faqs.map((faq, i) => (
             <motion.div
-              key={i}
+              key={faq.q}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}

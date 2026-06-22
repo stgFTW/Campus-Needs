@@ -18,7 +18,7 @@ export const Header = () => {
 
   const closeMobile = useCallback(() => {
     setMobileOpen(false);
-  }, []);
+  }, [setMobileOpen]);
 
   return (
     <header className="sticky top-0 z-50 bg-primary border-b border-primary/80">
