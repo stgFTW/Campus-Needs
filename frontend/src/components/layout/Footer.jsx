@@ -6,7 +6,7 @@ export const Footer = () => {
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Column 1 — Brand */}
+          {/* Column 1: Brand */}
           <div className="space-y-4">
             <Link to="/" className="inline-flex items-center gap-2.5 group">
               <img
@@ -41,7 +41,7 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2 — Explore */}
+          {/* Column 2: Explore */}
           <div>
             <h4 className="text-sm font-semibold text-accent mb-4">Explore</h4>
             <nav className="flex flex-col gap-2.5">
@@ -74,7 +74,7 @@ export const Footer = () => {
             </nav>
           </div>
 
-          {/* Column 3 — Sellers */}
+          {/* Column 3: Sellers */}
           <div>
             <h4 className="text-sm font-semibold text-accent mb-4">Sellers</h4>
             <nav className="flex flex-col gap-2.5">

@@ -33,7 +33,7 @@ const HeroSection = () => {
             <span className="text-accent">Your exchange.</span>
           </h1>
           <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed">
-            Buy and sell with verified University of San Francisco students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
+            Buy and sell with verified University of San Francisco students. Furniture, textbooks, and essentials. No shipping, no strangers. Just your campus community.
           </p>
           <p className="text-sm text-primary-foreground/60">
             Live marketplace <span className="text-accent">·</span> Verified University of San Francisco students only <span className="text-accent">·</span> Escrow protected
@@ -170,9 +170,8 @@ const WhyCampusNeedsSection = () => {
 const StatsSection = () => {
   const stats = [
     { number: 30, suffix: "+", label: "Active listings" },
-    { number: 100, suffix: "%", label: "Verified" },
-    { number: 0, suffix: "Escrow", label: "Protected payments" },
-    { number: 2026, suffix: "", label: "Launched" },
+    { number: null, suffix: "Verified", label: "Students only, by school email" },
+    { number: null, suffix: "Escrow", label: "Protected payments" },
   ];
 
   const CountUpNumber = ({ end, suffix, duration = 1.5 }) => {
@@ -199,7 +198,7 @@ const StatsSection = () => {
 
     return (
       <span ref={ref}>
-        {suffix === "Stripe" ? suffix : count + suffix}
+        {end === null ? suffix : count + suffix}
       </span>
     );
   };
@@ -210,7 +209,7 @@ const StatsSection = () => {
         <p className="text-center text-xs font-bold tracking-widest text-accent mb-8 uppercase">
           The Numbers
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={`${stat.label}-${stat.number}`}
@@ -239,7 +238,7 @@ const WhyThisWorksSection = () => {
     {
       icon: AtSign,
       header: "Real Dons only",
-      body: "Facebook Marketplace has 3 billion people. Campus Needs is built for the 5,300 University of San Francisco students on this hilltop. Every single one verified as a current student."
+      body: "Campus Needs is a marketplace for verified University of San Francisco students. List what you no longer need, find what you do, and meet at the Drop Desk on campus to hand it over. No shipping. No strangers. Just your campus community."
     },
     {
       icon: Lock,
@@ -345,82 +344,6 @@ const TrustBadges = () => {
   );
 };
 
-const BrowseByCategorySection = () => {
-  const categories = [
-    {
-      title: "Home and Living",
-      subtitle: "Furniture, lamps, mini fridges and more",
-      image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&q=80",
-      url: "https://connect.exono.me/Market/campusneeds?category=home%20and%20living"
-    },
-    {
-      title: "Study Essentials",
-      subtitle: "Calculators, adapters, study gear and more",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
-      url: "https://connect.exono.me/Market/campusneeds?category=study%20essentials"
-    }
-  ];
-
-  return (
-    <section className="py-12 sm:py-20 bg-green-tint">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Browse by Category"
-          subtitle="Everything students need, organized by category."
-        />
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {categories.map((category, i) => (
-            <motion.a
-              key={category.title}
-              href={category.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="relative min-h-[220px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
-            >
-              {/* Background Image */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${category.image})` }}
-              />
-              
-              {/* Dark Green Overlay (55% opacity) */}
-              <div className="absolute inset-0 bg-primary opacity-55" />
-              
-              {/* Content */}
-              <div className="relative h-full flex flex-col justify-between p-8">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                    {category.title}
-                  </h3>
-                  <p className="text-base text-white/90">
-                    {category.subtitle}
-                  </p>
-                </div>
-                
-                <Button
-                  variant="gold"
-                  size="default"
-                  className="w-full sm:w-auto group-hover:bg-accent/90 transition-colors duration-200"
-                  asChild
-                >
-                  <span>
-                    Browse Listings
-                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </span>
-                </Button>
-              </div>
-            </motion.a>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const ListItemBanner = () => {
   return (
     <section className="bg-primary">
@@ -512,14 +435,13 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title="Campus Needs – Buy & Sell at USF | Student Marketplace"
+        title="Campus Needs: Buy & Sell at USF | Student Marketplace"
         description="The University of San Francisco student marketplace. Buy dorm furniture, sell textbooks, borrow gear from verified USFCA students. Free to browse."
       />
       <OnboardingModal />
       <HeroSection />
       <TrustBar />
       <TrustBadges />
-      <BrowseByCategorySection />
       <HowItWorksSection />
       <WhyCampusNeedsSection />
       <CategoriesSection />

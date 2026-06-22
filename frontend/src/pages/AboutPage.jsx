@@ -35,7 +35,7 @@ export default function AboutPage() {
   return (
     <>
       <SEOHead
-        title="About Campus Needs — USF Student Marketplace"
+        title="About Campus Needs, USF Student Marketplace"
         description="Campus Needs is a student-run peer-to-peer marketplace built exclusively for University of San Francisco students."
       />
       {/* Page Header */}
@@ -60,7 +60,7 @@ export default function AboutPage() {
             Campus Needs is a hyper-local marketplace built exclusively for
             University of San Francisco students. Whether you need to sell your
             dorm furniture before moving out, find a graphing calculator for
-            next week's exam, or pick up affordable apartment essentials —
+            next week's exam, or pick up affordable apartment essentials,
             Campus Needs connects you with a verified peer who goes to your
             school. No strangers. No shipping. No overpaying. Just students
             helping students, right on campus.

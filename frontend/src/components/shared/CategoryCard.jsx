@@ -69,7 +69,7 @@ export const CategoryCard = ({ category, index = 0 }) => {
     );
   }
 
-  // Coming Soon variant — grayed out with gold badge
+  // Coming Soon variant, grayed out with gold badge
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -80,7 +80,7 @@ export const CategoryCard = ({ category, index = 0 }) => {
     >
       <Card className="h-full flex flex-col relative border border-border/40 bg-muted/50 opacity-80">
         <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground text-xs font-semibold px-2.5 py-0.5 hover:bg-accent">
-          Coming Soon
+          Coming with launch
         </Badge>
         <CardHeader className="pb-3">
           <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-3">

@@ -10,7 +10,7 @@ export default function HowItWorksPage() {
   return (
     <>
       <SEOHead
-        title="How It Works — Campus Needs"
+        title="How It Works, Campus Needs"
         description="Learn how Campus Needs connects University of San Francisco students to buy, sell, and borrow safely on campus."
       />
       {/* Page Header */}
@@ -64,7 +64,7 @@ export default function HowItWorksPage() {
                 Students who want to earn flexible income by offering services,
                 selling items, or lending things they already own. Run errands,
                 sell your old textbooks, or rent out your mini-fridge before
-                summer — on your own time, at your own price.
+                summer. On your own time, at your own price.
               </p>
             </motion.div>
 
@@ -87,7 +87,7 @@ export default function HowItWorksPage() {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Students who need affordable help on campus. Whether it's
                 groceries delivered to your dorm, a desk for your room, or a
-                calculator for finals week — find it from someone who already
+                calculator for finals week. Find it from someone who already
                 goes to your school, at prices that make sense.
               </p>
             </motion.div>

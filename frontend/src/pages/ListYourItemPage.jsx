@@ -40,7 +40,7 @@ export default function ListYourItemPage() {
   return (
     <>
       <SEOHead
-        title="List Your Item — Campus Needs"
+        title="List Your Item, Campus Needs"
         description="Submit your item or service to be listed on the Campus Needs USF student marketplace."
       />
 

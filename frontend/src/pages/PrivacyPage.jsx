@@ -26,7 +26,7 @@ export default function PrivacyPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10"
+          className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8"
         >
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">Who We Are</h2>
