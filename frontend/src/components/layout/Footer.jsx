@@ -30,7 +30,14 @@ export const Footer = () => {
               </a>
             </p>
             <p className="text-xs text-primary-foreground/50 leading-relaxed">
-              campusneeds.me
+              <a
+                href="https://campusneeds.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary-foreground transition-colors duration-200"
+              >
+                campusneeds.me
+              </a>
             </p>
           </div>
 
@@ -118,7 +125,7 @@ export const Footer = () => {
         {/* Divider + Bottom bar */}
         <div className="mt-10 pt-6 border-t border-primary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-primary-foreground/50">
-            © 2026 Campus Needs. Built for USF students.
+            © 2026 Campus Needs. Built for the University of San Francisco.
           </p>
         </div>
       </div>

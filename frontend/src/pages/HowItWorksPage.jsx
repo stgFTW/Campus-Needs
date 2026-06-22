@@ -11,7 +11,7 @@ export default function HowItWorksPage() {
     <>
       <SEOHead
         title="How It Works — Campus Needs"
-        description="Learn how Campus Needs connects USF students to buy, sell, and borrow safely on campus."
+        description="Learn how Campus Needs connects University of San Francisco students to buy, sell, and borrow safely on campus."
       />
       {/* Page Header */}
       <section className="bg-hero-gradient">

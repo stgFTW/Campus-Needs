@@ -26,7 +26,7 @@ export const CATEGORIES = [
     name: "Campus Closet",
     icon: "ShoppingBag",
     description:
-      "Secondhand clothing and style finds from fellow USF students. Coming soon.",
+      "Secondhand clothing and style finds from fellow students. Coming soon.",
     live: false,
   },
 ];
@@ -175,7 +175,7 @@ export const HOW_IT_WORKS_STEPS = [
     step: 1,
     title: "Browse",
     description:
-      "Explore listings from verified USF students across our live categories.",
+      "Explore listings from verified University of San Francisco students across our live categories.",
     detail:
       "Browse through Home and Living essentials, Study gear, and more as we expand. Every listing is posted by a verified USF student, so you know exactly who you're dealing with.",
   },

@@ -10,7 +10,7 @@ const slides = [
   {
     icon: ArrowLeftRight,
     headline: "Welcome to Campus Needs",
-    text: "The peer-to-peer marketplace built exclusively for USF students.",
+    text: "The peer-to-peer marketplace built exclusively for University of San Francisco students.",
   },
   {
     icon: ShieldCheck,

@@ -30,7 +30,7 @@ export default function CategoriesPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Live Now"
-            subtitle="Browse active listings from verified USF students."
+            subtitle="Browse active listings from verified University of San Francisco students."
           />
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {LIVE_CATEGORIES.map((cat, i) => (

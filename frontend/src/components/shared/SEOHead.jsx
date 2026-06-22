@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 export const SEOHead = ({
   title = "Campus Needs — USF Student Marketplace",
-  description = "Buy, sell, and borrow with verified USF students. Campus Needs is the trusted peer-to-peer marketplace for University of San Francisco students.",
+  description = "Buy, sell, and borrow with verified University of San Francisco students. Campus Needs is the trusted peer-to-peer marketplace for University of San Francisco students.",
 }) => {
   return (
     <Helmet>

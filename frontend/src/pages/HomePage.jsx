@@ -33,10 +33,10 @@ const HeroSection = () => {
             <span className="text-accent">Your exchange.</span>
           </h1>
           <p className="text-base sm:text-lg text-primary-foreground/80 leading-relaxed">
-            Buy and sell with verified USF students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
+            Buy and sell with verified University of San Francisco students. Furniture, textbooks, and essentials — no shipping, no strangers. Just your campus community.
           </p>
           <p className="text-sm text-primary-foreground/60">
-            Live marketplace <span className="text-accent">·</span> Verified USF students only <span className="text-accent">·</span> Stripe protected
+            Live marketplace <span className="text-accent">·</span> Verified University of San Francisco students only <span className="text-accent">·</span> Escrow protected
           </p>
           <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center">
             <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
@@ -72,7 +72,7 @@ const HowItWorksSection = () => {
             Three steps.
           </h2>
           <p className="text-base text-muted-foreground mt-2">
-            Safe, fast, and built for USF students.
+            Safe, fast, and built for University of San Francisco students.
           </p>
           <div className="w-12 h-0.5 bg-accent mt-4 mb-10"></div>
         </div>
@@ -156,7 +156,7 @@ const WhyCampusNeedsSection = () => {
             That story is not rare. Recent research shows 1 in 3 secondhand marketplace buyers got scammed in the last two years. The FTC logged 12.5 billion dollars in fraud in 2024, with ages 20 to 29 hit hardest. Meanwhile every May, thousands of dollars of usable furniture and textbooks go straight to campus dumpsters.
           </p>
           <p className="text-base leading-relaxed">
-            Campus Needs is the fix. USF verified. Stripe protected. On campus only. Built by a Don, for Dons.
+            Campus Needs is the fix. University of San Francisco verified. Escrow protected. On campus only. Built by a Don, for Dons.
           </p>
           <p className="text-base italic mt-6" style={{ color: "#C99700" }}>
             Shubh Mehta, Founder, USF Class of 2026
@@ -170,8 +170,8 @@ const WhyCampusNeedsSection = () => {
 const StatsSection = () => {
   const stats = [
     { number: 30, suffix: "+", label: "Active listings" },
-    { number: 100, suffix: "%", label: "USF verified" },
-    { number: 0, suffix: "Stripe", label: "Protected payments" },
+    { number: 100, suffix: "%", label: "Verified" },
+    { number: 0, suffix: "Escrow", label: "Protected payments" },
     { number: 2026, suffix: "", label: "Launched" },
   ];
 
@@ -239,7 +239,7 @@ const WhyThisWorksSection = () => {
     {
       icon: AtSign,
       header: "Real Dons only",
-      body: "Facebook Marketplace has 3 billion people. Campus Needs is built for the 5,300 USF students on this hilltop. Every single one verified as a current USF student."
+      body: "Facebook Marketplace has 3 billion people. Campus Needs is built for the 5,300 University of San Francisco students on this hilltop. Every single one verified as a current student."
     },
     {
       icon: Lock,
@@ -298,7 +298,7 @@ const CategoriesSection = () => {
     <section className="py-12 sm:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          title="What USF students are buying and selling"
+          title="What University of San Francisco students are buying and selling"
           subtitle="Browse by category or see all listings"
         />
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-5">
@@ -366,7 +366,7 @@ const BrowseByCategorySection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Browse by Category"
-          subtitle="Everything USF students need, organized by category."
+          subtitle="Everything students need, organized by category."
         />
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           {categories.map((category, i) => (
@@ -455,12 +455,12 @@ const ListItemBanner = () => {
 const FAQSection = () => {
   const faqs = [
     {
-      q: "Is Campus Needs only for USF students?",
+      q: "Is Campus Needs only for University of San Francisco students?",
       a: "Yes. Campus Needs is built specifically for University of San Francisco students. Everyone signs in with their @usfca.edu email, so you know you're dealing with real classmates.",
     },
     {
       q: "Do I have to pay to browse?",
-      a: "Nope. Browsing Campus Needs is completely free. You can see what other USF students are selling without signing up.",
+      a: "Nope. Browsing Campus Needs is completely free. You can see what other students are selling without signing up.",
     },
     {
       q: "How do payments work?",
@@ -468,7 +468,7 @@ const FAQSection = () => {
     },
     {
       q: "What can I buy or sell here?",
-      a: "Furniture, textbooks, electronics, class gear, everyday essentials. If it's useful for USF students and safe to exchange on or near campus, it belongs here.",
+      a: "Furniture, textbooks, electronics, class gear, everyday essentials. If it's useful for students and safe to exchange on or near campus, it belongs here.",
     },
   ];
 
@@ -513,7 +513,7 @@ export default function HomePage() {
     <>
       <SEOHead
         title="Campus Needs – Buy & Sell at USF | Student Marketplace"
-        description="The USF-only student marketplace. Buy dorm furniture, sell textbooks, borrow gear from verified USFCA students. Free to browse."
+        description="The University of San Francisco student marketplace. Buy dorm furniture, sell textbooks, borrow gear from verified USFCA students. Free to browse."
       />
       <OnboardingModal />
       <HeroSection />
