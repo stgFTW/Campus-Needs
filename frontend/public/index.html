@@ -53,22 +53,63 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
         
-        <title>Campus Needs — The Verified USF Student Marketplace</title>
-        <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
-        <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
+        <!-- JSON-LD Structured Data for Google -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Campus Needs",
+          "alternateName": "Campus Needs USF Marketplace",
+          "url": "https://campusneeds.me",
+          "description": "The verified USF student marketplace. Buy and sell furniture, textbooks, and essentials with verified University of San Francisco students.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Campus Needs",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://campusneeds.me/campus-needs-logo.png"
+            }
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://connect.exono.me/Market/CampusNeeds?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Campus Needs",
+          "url": "https://campusneeds.me",
+          "logo": "https://campusneeds.me/campus-needs-logo.png",
+          "sameAs": [],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@campusneeds.me",
+            "contactType": "Customer Service"
+          },
+          "areaServed": {
+            "@type": "Place",
+            "name": "University of San Francisco"
+          }
+        }
+        </script>
     </head>
     <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
+        <noscript>
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6;">
+                <h1 style="color: #006341; font-size: 32px; margin-bottom: 10px;">Campus Needs</h1>
+                <p style="color: #C99700; font-size: 20px; margin-bottom: 30px;">Your campus. Your exchange.</p>
+                <p style="font-size: 16px; color: #333; margin-bottom: 20px;">Buy and sell with verified USF students. Stripe protected payments, on campus handoffs, no shipping, no strangers. Just your campus community.</p>
+                
+                <h2 style="color: #006341; font-size: 24px; margin: 30px 0 15px;">Categories</h2>
+                <ul style="font-size: 16px; color: #333;">
+                    <li><strong>Home and Living</strong> - Furniture, lamps, mini fridges and more</li>
+                    <li><strong>Study and Class Essentials</strong> - Calculators, adapters, study gear and more</li>
+                </ul>
+                
     -->
         <a
             id="emergent-badge"
@@ -115,51 +156,6 @@
                 Made with Emergent
             </p>
         </a>
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
                                 },
                                 u.people.toString = function () {
                                     return u.toString(1) + ".people (stub)";

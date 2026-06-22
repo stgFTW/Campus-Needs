@@ -1,0 +1,10 @@
+# robots.txt for campusneeds.me
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://campusneeds.me/sitemap.xml
+
+# Crawl delay (optional, helps prevent server overload)
+Crawl-delay: 1
