@@ -95,3 +95,7 @@ firebase-adminsdk*.json
 *.swp
 *.swo
 *~
+.env
+.env.*
+*.env
+.credentials
