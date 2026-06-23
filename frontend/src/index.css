@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
   :root {
     /* ===== Campus Needs Design Tokens ===== */
     /* USF Brand Colors in HSL */
