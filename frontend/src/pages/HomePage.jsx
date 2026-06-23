@@ -44,10 +44,10 @@ const HeroSection = () => {
               className="w-full sm:w-auto group"
               asChild
             >
-              <a href="#join-waitlist">
+              <Link to="/waitlist">
                 Join the Waitlist
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
             </Button>
             <Button variant="hero-outline" size="lg" className="hidden sm:flex w-full sm:w-auto" asChild>
               <a href="#how-it-works">
@@ -57,38 +57,6 @@ const HeroSection = () => {
             </Button>
           </div>
         </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const JoinWaitlistSection = () => {
-  return (
-    <section id="join-waitlist" className="py-16 sm:py-20 bg-background" style={{ scrollMarginTop: '80px' }}>
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Join the Waitlist
-          </h2>
-          <p className="text-base text-muted-foreground">
-            Be the first to know when Campus Needs launches at the University of San Francisco.
-          </p>
-        </div>
-        
-        {/* Tally Form Embed with Dynamic Height */}
-        <div className="w-full">
-          <iframe 
-            data-tally-src="https://tally.so/embed/Bz6qV7?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-            loading="lazy" 
-            width="100%" 
-            height="400" 
-            frameBorder="0" 
-            marginHeight="0" 
-            marginWidth="0" 
-            title="Join the Waitlist"
-            style={{ border: 0, margin: 0, minHeight: '400px' }}
-          ></iframe>
-        </div>
       </div>
     </section>
   );
@@ -534,7 +502,6 @@ export default function HomePage() {
       />
       <OnboardingModal />
       <HeroSection />
-      <JoinWaitlistSection />
       <TrustBar />
       <TrustBadges />
       <BrowseByCategorySection />

@@ -3,16 +3,15 @@ import { SEOHead } from "@/components/shared/SEOHead";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
-export default function ListYourItemPage() {
+export default function WaitlistPage() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    // Load Tally embed script - using textContent instead of innerHTML to prevent XSS
+    // Load Tally embed script
     const script = document.createElement('script');
     script.textContent = `var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}`;
     document.body.appendChild(script);
 
-    // Add custom CSS to override Tally button color - using textContent instead of innerHTML
     const style = document.createElement('style');
     style.textContent = `
       iframe[src*="tally.so"] {
@@ -22,7 +21,6 @@ export default function ListYourItemPage() {
     document.head.appendChild(style);
 
     return () => {
-      // Cleanup script on unmount
       const tallyScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
       if (tallyScript) {
         tallyScript.remove();
@@ -34,25 +32,23 @@ export default function ListYourItemPage() {
         script.parentNode.removeChild(script);
       }
     };
-    // Added dependencies to fix stale closure bug
   }, []);
 
   return (
     <>
       <SEOHead
-        title="List Your Item, Campus Needs"
-        description="Submit your item or service to be listed on the Campus Needs USF student marketplace."
+        title="Join the Waitlist, Campus Needs"
+        description="Be the first to know when Campus Needs launches at the University of San Francisco."
       />
 
       {/* Page Header */}
       <section className="bg-hero-gradient">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary-foreground">
-            List your item or service
+            Join the Waitlist
           </h1>
           <p className="mt-3 text-base text-primary-foreground/75 max-w-lg">
-            Submit your details below. We verify your Dons email and list it on
-            your behalf within 48 hours.
+            Be the first in when Campus Needs launches at the University of San Francisco.
           </p>
         </div>
       </section>
@@ -70,12 +66,10 @@ export default function ListYourItemPage() {
                 <CheckCircle className="h-7 w-7 text-primary" />
               </div>
               <h2 className="text-xl font-semibold text-foreground">
-                Listing submitted!
+                You're on the list!
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto">
-                Your listing has been submitted. We will review it and verify
-                your Dons email within 48 hours. If approved, your item will go
-                live on the Campus Needs marketplace.
+                We'll email you the moment Campus Needs launches at the University of San Francisco.
               </p>
             </motion.div>
           ) : (
@@ -86,14 +80,14 @@ export default function ListYourItemPage() {
             >
               {/* Tally Form Embed */}
               <iframe 
-                data-tally-src="https://tally.so/embed/dWgX4z?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                data-tally-src="https://tally.so/embed/Bz6qV7?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
                 loading="lazy" 
                 width="100%" 
-                height="1233" 
+                height="600" 
                 frameBorder="0" 
                 marginHeight="0" 
                 marginWidth="0" 
-                title="Campus Needs - List Your Item"
+                title="Join the Waitlist"
                 style={{ border: 0, margin: 0 }}
               ></iframe>
             </motion.div>

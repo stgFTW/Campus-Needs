@@ -6,6 +6,7 @@ import HomePage from "@/pages/HomePage";
 import CategoriesPage from "@/pages/CategoriesPage";
 import HowItWorksPage from "@/pages/HowItWorksPage";
 import ListYourItemPage from "@/pages/ListYourItemPage";
+import WaitlistPage from "@/pages/WaitlistPage";
 import ListingsPage from "@/pages/ListingsPage";
 import AboutPage from "@/pages/AboutPage";
 import PrivacyPage from "@/pages/PrivacyPage";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/listings" element={<ListingsPage />} />
             <Route path="/list-your-item" element={<ListYourItemPage />} />
+            <Route path="/waitlist" element={<WaitlistPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
