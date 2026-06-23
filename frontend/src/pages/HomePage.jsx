@@ -38,11 +38,15 @@ const HeroSection = () => {
             Live marketplace <span className="text-accent">·</span> Verified University of San Francisco students only <span className="text-accent">·</span> Escrow protected
           </p>
           <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center">
-            <Button variant="gold" size="lg" className="w-full sm:w-auto group" asChild>
-              <a href={MARKETPLACE_URL} target="_blank" rel="noopener noreferrer">
-                Browse the Exchange
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+            <Button 
+              variant="gold" 
+              size="lg" 
+              className="w-full sm:w-auto group" 
+              onClick={() => window.Tally?.openPopup('Bz6qV7')}
+              type="button"
+            >
+              Join the Waitlist
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>
             <Button variant="hero-outline" size="lg" className="hidden sm:flex w-full sm:w-auto" asChild>
               <a href="#how-it-works">
