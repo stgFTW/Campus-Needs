@@ -94,7 +94,7 @@ export default function ListYourItemPage() {
                 marginHeight="0" 
                 marginWidth="0" 
                 title="Campus Needs - List Your Item"
-                style={{ border: 'none' }}
+                style={{ border: 0, margin: 0 }}
               ></iframe>
             </motion.div>
           )}

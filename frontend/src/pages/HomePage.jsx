@@ -64,19 +64,19 @@ const HeroSection = () => {
 
 const JoinWaitlistSection = () => {
   return (
-    <section id="join-waitlist" className="py-12 sm:py-16 bg-background">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+    <section id="join-waitlist" className="py-16 sm:py-20 bg-background" style={{ scrollMarginTop: '80px' }}>
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Join the Waitlist
           </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground">
             Be the first to know when Campus Needs launches at the University of San Francisco.
           </p>
         </div>
         
-        {/* Tally Form Embed */}
-        <div className="max-w-2xl mx-auto">
+        {/* Tally Form Embed with Dynamic Height */}
+        <div className="w-full">
           <iframe 
             data-tally-src="https://tally.so/embed/Bz6qV7?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
             loading="lazy" 
@@ -86,7 +86,7 @@ const JoinWaitlistSection = () => {
             marginHeight="0" 
             marginWidth="0" 
             title="Join the Waitlist"
-            style={{ border: 'none', minHeight: '400px' }}
+            style={{ border: 0, margin: 0, minHeight: '400px' }}
           ></iframe>
         </div>
       </div>
